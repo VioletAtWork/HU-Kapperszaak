@@ -6,7 +6,7 @@ const Reserve = () => (
     <Layout title="Reserveren">
         <Container>
             <Heading as="h3" fontSize={20} mb={4}>
-                Reserveer Nu
+                Reserveren
             </Heading>
 
             <SimpleGrid columns={[1, 1, 2]} gap={6}>

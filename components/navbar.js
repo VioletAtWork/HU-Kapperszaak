@@ -18,7 +18,7 @@ import NextLink from 'next/link'
 
 const LinkItem = ({ href, path, children }) => {
     const active = path === href
-    const inactiveColor = useColorModeValue('gray200', 'whiteAlpha.900')
+    const inactiveColor = useColorModeValue('gray.350', 'whiteAlpha.900')
     return (
         <NextLink href={href} passHref scroll={false}>
             <Link
@@ -73,7 +73,7 @@ const Navbar = props => {
                     </LinkItem>
 
                     <LinkItem href="/ourteam" path={path} >
-                        Ons team
+                        Over ons
                     </LinkItem>
 
                     <LinkItem href="/reserve" path={path} >

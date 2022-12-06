@@ -21,21 +21,19 @@ const Logo = () => {
     const haircutLogo = `/images/haircut${useColorModeValue('', '-dark')}.png`
 
     return (
-        <Link href="/" legacyBehavior={true}>
-            <a>
-                <LogoBox>
-                    <Image src={haircutLogo} width={20} height={20} alt="logo" />
-                    <Text
-                        color={useColorModeValue('gray.800', 'whiteAlpha.900')}
-                        fontFamily="M PLUS Rounded 1c"
-                        fontWeight="bold"
-                        ml={3}
-                    >
-                        HairLab
-                    </Text>
+        <Link href="/">
+            <LogoBox>
+                <Image src={haircutLogo} width={20} height={20} alt="logo" />
+                <Text
+                    color={useColorModeValue('gray.800', 'whiteAlpha.900')}
+                    fontFamily="M PLUS Rounded 1c"
+                    fontWeight="bold"
+                    ml={3}
+                >
+                    HairLab
+                </Text>
 
-                </LogoBox>
-            </a>
+            </LogoBox>
         </Link>
     )
 }
