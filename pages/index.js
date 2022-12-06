@@ -1,6 +1,5 @@
 import {Box, Button, Container, Heading, Image, Link, Text, useColorModeValue} from "@chakra-ui/react";
 import Section from "../components/section";
-import Paragraph from "../components/paragraph";
 import {ChevronRightIcon} from "@chakra-ui/icons";
 import NextLink from "next/link";
 
@@ -29,12 +28,12 @@ const Page = () => {
 
             <Section delay={0.1}>
                 <Heading as="h3" variant="section-title">
-                    Locations
+                    Locaties
                 </Heading>
                 <Box align="center" my={4}>
-                    <NextLink href={''}>
-                        <Button rightIcon={<ChevronRightIcon />} colorScheme="teal">
-                            Book Now
+                    <NextLink href="/locaties">
+                        <Button rightIcon={<ChevronRightIcon />} colorScheme="teal" variant="outline">
+                            Locaties
                         </Button>
                     </NextLink>
                 </Box>

@@ -3,16 +3,23 @@ import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import { WorkGridItem } from '../components/griditem'
 
-const Locations = () => (
-    <Layout title="Locations">
+import thumbnailRotterdam from '../public/images/locaties/thumbnailRotterdam.png'
+import thumbnailAmsterdam from '../public/images/locaties/thumbnailAmsterdam.png'
+
+const Locaties = () => (
+    <Layout title="Locaties">
         <Container>
+            <Divider my={2} />
             <Heading as="h3" fontSize={20} mb={4}>
-                Locations
+                Locaties
             </Heading>
 
             <SimpleGrid columns={[1, 1, 2]} gap={6}>
                 <Section>
-                    <WorkGridItem id="rotterdam" title="Rotterdam" thumbnail={}>
+                    <WorkGridItem
+                        id="rotterdam"
+                        title="Rotterdam"
+                        thumbnail={thumbnailRotterdam}>
                         Rotterdam info.
                     </WorkGridItem>
                 </Section>
@@ -20,7 +27,7 @@ const Locations = () => (
                     <WorkGridItem
                         id="amsterdam"
                         title="Amsterdam"
-                        thumbnail={}
+                        thumbnail={thumbnailAmsterdam}
                     >
                         Amsterdam info
                     </WorkGridItem>
@@ -40,5 +47,5 @@ const Locations = () => (
     </Layout>
 )
 
-export default Locations
+export default Locaties
 export { getServerSideProps } from '../components/chakra'

@@ -1,5 +1,4 @@
 import Logo from './logo'
-import NextLink from 'next/link'
 import {
     Container,
     Box,
@@ -14,12 +13,12 @@ import {
     IconButton,
     useColorModeValue
 } from '@chakra-ui/react'
-import { HamburgerIcon } from '@chakra-ui/icons'
 import ThemeToggleButton from './theme-toggle-button'
+import NextLink from 'next/link'
 
 const LinkItem = ({ href, path, children }) => {
     const active = path === href
-    const inactiveColor = useColorModeValue('gray200', 'whiteAlpha.900')
+    const inactiveColor = useColorModeValue('gray.350', 'whiteAlpha.900')
     return (
         <NextLink href={href} passHref scroll={false}>
             <Link
@@ -43,7 +42,7 @@ const Navbar = props => {
             w="100%"
             bg={useColorModeValue('#ffffff40', '#20202380')}
             css={{ backdropFilter: 'blur(10px)' }}
-            zIndex={2}
+            zIndex={1}
             {...props}
         >
             <Container
@@ -68,18 +67,27 @@ const Navbar = props => {
                     flexGrow={1}
                     mt={{ base: 4, md: 0 }}
                 >
-                    <LinkItem href="" path={path}>
-                        Locations
+
+                    <LinkItem href="/locaties" path={path}>
+                        Locaties
                     </LinkItem>
-                    <LinkItem href="" path={path} >
-                        Book Now
+
+                    <LinkItem href="/ourteam" path={path} >
+                        Over ons
+                    </LinkItem>
+
+                    <LinkItem href="/reserve" path={path} >
+                        Reserveren
+                    </LinkItem>
+
+                    <LinkItem href="/login" path={path} >
+                        Inloggen
                     </LinkItem>
 
                 </Stack>
 
                 <Box flex={1} align="right">
                     <ThemeToggleButton />
-
                 </Box>
             </Container>
         </Box>
