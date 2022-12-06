@@ -14,7 +14,6 @@ import {
     IconButton,
     useColorModeValue
 } from '@chakra-ui/react'
-import { HamburgerIcon } from '@chakra-ui/icons'
 import ThemeToggleButton from './theme-toggle-button'
 
 const LinkItem = ({ href, path, children }) => {
@@ -69,10 +68,19 @@ const Navbar = props => {
                     mt={{ base: 4, md: 0 }}
                 >
                     <LinkItem href="" path={path}>
-                        Locations
+                        Home
                     </LinkItem>
+
+                    <LinkItem href="" path={path}>
+                        Locaties
+                    </LinkItem>
+
                     <LinkItem href="" path={path} >
-                        Book Now
+                        Inloggen
+                    </LinkItem>
+
+                    <LinkItem href="" path={path} >
+                        Maak afspraak
                     </LinkItem>
 
                 </Stack>

@@ -29,7 +29,7 @@ const Page = () => {
 
             <Section delay={0.1}>
                 <Heading as="h3" variant="section-title">
-                    Locations
+                    Locaties
                 </Heading>
                 <Box align="center" my={4}>
                     <NextLink href={''}>
