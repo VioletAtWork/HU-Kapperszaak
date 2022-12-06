@@ -68,17 +68,22 @@ const Navbar = props => {
                     mt={{ base: 4, md: 0 }}
                 >
 
-                    <LinkItem href="/" path={path}>
+                    <LinkItem href="/locaties" path={path}>
                         Locaties
                     </LinkItem>
 
-                    <LinkItem href="/" path={path} >
+                    <LinkItem href="/ourteam" path={path} >
+                        Ons team
+                    </LinkItem>
+
+                    <LinkItem href="/reserve" path={path} >
+                        Reserveren
+                    </LinkItem>
+
+                    <LinkItem href="/login" path={path} >
                         Inloggen
                     </LinkItem>
 
-                    <LinkItem href="/" path={path} >
-                        Maak afspraak
-                    </LinkItem>
                 </Stack>
 
                 <Box flex={1} align="right">

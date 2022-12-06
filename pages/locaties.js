@@ -9,6 +9,7 @@ import thumbnailAmsterdam from '../public/images/locaties/thumbnailAmsterdam.png
 const Locaties = () => (
     <Layout title="Locaties">
         <Container>
+            <Divider my={2} />
             <Heading as="h3" fontSize={20} mb={4}>
                 Locaties
             </Heading>
