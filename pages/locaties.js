@@ -3,6 +3,9 @@ import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import { WorkGridItem } from '../components/griditem'
 
+import thumbnailRotterdam from '../public/images/locaties/thumbnailRotterdam.png'
+import thumbnailAmsterdam from '../public/images/locaties/thumbnailAmsterdam.png'
+
 const Locaties = () => (
     <Layout title="Locaties">
         <Container>
@@ -12,7 +15,10 @@ const Locaties = () => (
 
             <SimpleGrid columns={[1, 1, 2]} gap={6}>
                 <Section>
-                    <WorkGridItem id="rotterdam" title="Rotterdam" thumbnail={}>
+                    <WorkGridItem
+                        id="rotterdam"
+                        title="Rotterdam"
+                        thumbnail={thumbnailRotterdam}>
                         Rotterdam info.
                     </WorkGridItem>
                 </Section>
@@ -20,7 +26,7 @@ const Locaties = () => (
                     <WorkGridItem
                         id="amsterdam"
                         title="Amsterdam"
-                        thumbnail={}
+                        thumbnail={thumbnailAmsterdam}
                     >
                         Amsterdam info
                     </WorkGridItem>

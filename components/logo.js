@@ -21,7 +21,8 @@ const Logo = () => {
     const haircutLogo = `/images/haircut${useColorModeValue('', '-dark')}.png`
 
     return (
-        <Link href="/">
+        <Link href="/" legacyBehavior={true}>
+            <a>
                 <LogoBox>
                     <Image src={haircutLogo} width={20} height={20} alt="logo" />
                     <Text
@@ -30,9 +31,11 @@ const Logo = () => {
                         fontWeight="bold"
                         ml={3}
                     >
+                        HairLab
                     </Text>
-                </LogoBox>
 
+                </LogoBox>
+            </a>
         </Link>
     )
 }

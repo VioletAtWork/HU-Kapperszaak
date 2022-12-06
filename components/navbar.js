@@ -1,5 +1,4 @@
 import Logo from './logo'
-import NextLink from 'next/link'
 import {
     Container,
     Box,
@@ -15,6 +14,7 @@ import {
     useColorModeValue
 } from '@chakra-ui/react'
 import ThemeToggleButton from './theme-toggle-button'
+import NextLink from 'next/link'
 
 const LinkItem = ({ href, path, children }) => {
     const active = path === href
@@ -42,7 +42,7 @@ const Navbar = props => {
             w="100%"
             bg={useColorModeValue('#ffffff40', '#20202380')}
             css={{ backdropFilter: 'blur(10px)' }}
-            zIndex={2}
+            zIndex={1}
             {...props}
         >
             <Container
@@ -67,27 +67,22 @@ const Navbar = props => {
                     flexGrow={1}
                     mt={{ base: 4, md: 0 }}
                 >
-                    <LinkItem href="" path={path}>
-                        Home
-                    </LinkItem>
 
-                    <LinkItem href="" path={path}>
+                    <LinkItem href="/" path={path}>
                         Locaties
                     </LinkItem>
 
-                    <LinkItem href="" path={path} >
+                    <LinkItem href="/" path={path} >
                         Inloggen
                     </LinkItem>
 
-                    <LinkItem href="" path={path} >
+                    <LinkItem href="/" path={path} >
                         Maak afspraak
                     </LinkItem>
-
                 </Stack>
 
                 <Box flex={1} align="right">
                     <ThemeToggleButton />
-
                 </Box>
             </Container>
         </Box>
