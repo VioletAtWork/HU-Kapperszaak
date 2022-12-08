@@ -1,0 +1,10 @@
+insert into role (idRole, Name) values (1, 'in');
+insert into role (idRole, Name) values (2, 'tortor sollicitudin mi sit');
+insert into role (idRole, Name) values (3, 'elementum eu interdum eu tincidunt');
+insert into role (idRole, Name) values (4, 'ante ipsum');
+insert into role (idRole, Name) values (5, 'sapien quis libero nullam sit');
+insert into role (idRole, Name) values (6, 'ultrices libero non mattis pulvinar');
+insert into role (idRole, Name) values (7, 'odio');
+insert into role (idRole, Name) values (8, 'congue diam');
+insert into role (idRole, Name) values (9, 'eu');
+insert into role (idRole, Name) values (10, 'pretium');
