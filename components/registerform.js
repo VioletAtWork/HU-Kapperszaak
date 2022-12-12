@@ -1,0 +1,76 @@
+import React, { useState, useEffect } from 'react'
+import {
+    Flex,
+    Box,
+    Heading,
+    FormControl,
+    FormLabel,
+    FormHelperText,
+    FormErrorMessage,
+    Input,
+    Button, Container
+} from '@chakra-ui/react';
+import Axios from 'axios';
+
+function App() {
+    const [userfirstName, setUserFirstName] = useState("");
+    const [usermiddleName, setUserMiddleName] = useState("");
+    const [userlastName, setUserLastName] = useState("");
+    const [userEmail, setUserEmail] = useState("");
+    const [userPassword, setUserPassword] = useState("");
+    
+    const registrateUser = () => {
+        Axios.post("http://localhost:3001/api/insert", {
+            userFirstName: userfirstName,
+            userMiddleName: usermiddleName,
+            userLastName: userlastName,
+            userEmail: userEmail,
+            userPassword: userPassword,
+        }).then(() => {
+            alert("succesfull insert");
+        });
+    };
+ 
+
+const RegisterForm = () => {
+    return (
+
+        <Container>
+            <FormControl>
+                <FormLabel>Voornaam</FormLabel>
+                <Input variant="loginform" onChange={(e) => {
+                    setUserFirstName(e.target.value);
+                } }/>
+
+                <FormLabel>Tussenvoegsel</FormLabel>
+                <Input variant="loginform" onChange={(e) => {
+                    setUserMiddleName(e.target.value);
+                } }/>
+
+                <FormLabel>Achternaam</FormLabel>
+                <Input variant="loginform" onChange={(e) => {
+                    setUserLastName(e.target.value);
+                } }/>
+
+                <FormLabel>Email address</FormLabel>
+                <Input type="email" variant="loginform" onChange={(e) => {
+                    setUserEmail(e.target.value);
+                } }/>
+                <FormHelperText>We'll never share your details.</FormHelperText>
+
+                <FormLabel>Wachtwoord</FormLabel>
+                <Input variant="loginform" onChange={(e) => {
+                    setUserPassword(e.target.value);
+                } }/>
+            </FormControl>
+
+            <Button onClick={'registrateUser'}>Registreren</Button>
+        </Container>
+            
+    )
+}
+}
+
+
+/*undefinded (error) */
+export default RegisterForm

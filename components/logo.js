@@ -22,17 +22,18 @@ const Logo = () => {
 
     return (
         <Link href="/">
-                <LogoBox>
-                    <Image src={haircutLogo} width={20} height={20} alt="logo" />
-                    <Text
-                        color={useColorModeValue('gray.800', 'whiteAlpha.900')}
-                        fontFamily="M PLUS Rounded 1c"
-                        fontWeight="bold"
-                        ml={3}
-                    >
-                    </Text>
-                </LogoBox>
+            <LogoBox>
+                <Image src={haircutLogo} width={20} height={20} alt="logo" />
+                <Text
+                    color={useColorModeValue('gray.800', 'whiteAlpha.900')}
+                    fontFamily="M PLUS Rounded 1c"
+                    fontWeight="bold"
+                    ml={3}
+                >
+                    HairLab
+                </Text>
 
+            </LogoBox>
         </Link>
     )
 }
