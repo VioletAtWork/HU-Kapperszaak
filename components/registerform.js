@@ -14,13 +14,12 @@ import Axios from 'axios';
 
 const RegisterForm = () => {
 
-function Backend() {
     const [userfirstName, setUserFirstName] = useState("");
     const [usermiddleName, setUserMiddleName] = useState("");
     const [userlastName, setUserLastName] = useState("");
     const [userEmail, setUserEmail] = useState("");
     const [userPassword, setUserPassword] = useState("");
-}
+
         const registrateUser = () => {
             Axios.post("http://localhost:3001/api/insert", {
                 userFirstName: userfirstName,
@@ -32,8 +31,6 @@ function Backend() {
                 alert("succesfull insert");
             });
         };
-    
-    
 
         return (
             <Container>
@@ -69,10 +66,9 @@ function Backend() {
                 <Button onClick={registrateUser}>Registreren</Button>
             </Container>
 
-        )
-      };
-    
-    
+        );
+   }
+       
 export default RegisterForm
 
 

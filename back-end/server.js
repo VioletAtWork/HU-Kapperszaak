@@ -1,13 +1,12 @@
-import express, { json } from "express";
-import bodyParser from 'body-parser';
-import cors from 'cors';
-const app = express();
-import { createPool } from "mysql";
-import { urlencoded } from "body-parser";
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const RegisterForm = express();
+const mysql = require("mysql");
 
 /* CONNECTION (Root = default user) */
 
-const db = createPool({
+const db = mysql.createPool({
     host: "localhost",
     user: "sqluser",
     password: "password",
@@ -15,12 +14,11 @@ const db = createPool({
 });
 
 /* IETS GAAT ER NIET GOED MET BODY-PARSER !!!!!!*/
-app.use(cors());
-app.use(json())
-app.use(bodyParser,urlencoded({extended:true}))
+RegisterForm.use(cors());
+RegisterForm.use(express.json());
+RegisterForm.use(bodyParser.urlencoded({ extended: true }));
 
-app.post("/api/insert", (req, res)=> {
-
+RegisterForm.post("/api/insert", (req, res)=> {
     const userfirstname = req.body.userFirstName
     const usermiddlename = req.body.userMiddleName
     const userlastname = req.body.userlastname
@@ -34,7 +32,7 @@ app.post("/api/insert", (req, res)=> {
     
 });
 
-app.listen(3001, () => {
-    console.log("running on port 3001");
+RegisterForm.listen(3002, () => {
+    console.log("running on port 3002");
 });
 
