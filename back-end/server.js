@@ -1,13 +1,13 @@
-const express =  require("express");
-const bodyParser = require('body-parser')
-const cors = require('cors')
+import express, { json } from "express";
+import bodyParser from 'body-parser';
+import cors from 'cors';
 const app = express();
-const mysql = require("mysql");
-const { urlencoded } = require("body-parser");
+import { createPool } from "mysql";
+import { urlencoded } from "body-parser";
 
 /* CONNECTION (Root = default user) */
 
-const db = mysql.createPool({
+const db = createPool({
     host: "localhost",
     user: "sqluser",
     password: "password",
@@ -16,7 +16,7 @@ const db = mysql.createPool({
 
 /* IETS GAAT ER NIET GOED MET BODY-PARSER !!!!!!*/
 app.use(cors());
-app.use(express.json())
+app.use(json())
 app.use(bodyParser,urlencoded({extended:true}))
 
 app.post("/api/insert", (req, res)=> {
