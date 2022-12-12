@@ -14,14 +14,18 @@ import Axios from 'axios';
 
 const RegisterForm = () => {
 
+/*  CONST FUNCTIONS GRABBING ONchange VARIABLE FROM FIELDS */
+
     const [userfirstName, setUserFirstName] = useState("");
     const [usermiddleName, setUserMiddleName] = useState("");
     const [userlastName, setUserLastName] = useState("");
     const [userEmail, setUserEmail] = useState("");
     const [userPassword, setUserPassword] = useState("");
 
+/* THIS CONST FUNCTION IS LINKED WITH THE REGISTATION BUTTON, INFORMATION IS STORED INTO AN OBJECT SO IT CAN BE PULLED INTO THE BACKEND */
+
         const registrateUser = () => {
-            Axios.post("http://localhost:3001/api/insert", {
+            Axios.post("http://localhost:3002/api/insert", {
                 userFirstName: userfirstName,
                 userMiddleName: usermiddleName,
                 userLastName: userlastName,
@@ -31,6 +35,8 @@ const RegisterForm = () => {
                 alert("succesfull insert");
             });
         };
+
+/* CONTAINER OF FORM FIELDS AND REGISTER BUTTON */
 
         return (
             <Container>
