@@ -5,7 +5,7 @@ const app = express();
 const mysql = require("mysql");
 const { urlencoded } = require("body-parser");
 
-/* CONNECTION (Root = default user) */
+/* CONNECTION (Root = default user) ja*/
 
 const db = mysql.createPool({
     host: "localhost",
