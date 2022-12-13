@@ -13,12 +13,10 @@ import {
 import Axios from 'axios';
 import { useForm } from "react-hook-form";
 
-export default function App() {
+const createAccountForm = () => {
+
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => console.log(data);
-
-
-const RegisterForm = () => {
 
 /*  CONST FUNCTIONS GRABBING ONchange VARIABLE FROM FIELDS */
 
@@ -40,7 +38,7 @@ const RegisterForm = () => {
             }).then(() => {
                 alert("succesfull insert");
             });
-            
+
         };
 
 /* CONTAINER OF FORM FIELDS AND REGISTER BUTTON */
@@ -82,4 +80,4 @@ const RegisterForm = () => {
         );
    }
        
-export default RegisterForm
+export default createAccountForm
