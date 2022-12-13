@@ -45,6 +45,49 @@ const createAccountForm = () => {
 
         return (
             <Container>
+                <form>
+                 <label>Voornaam</label>
+                    <input 
+                    {...register("firstName", {
+                        required: true,
+                        maxLength: 20,
+                        pattern: /^[A-Za-z]+$/i
+                    })}
+                    />
+                    {errors?.firstName?.type === "required" && <p>This field is required</p>}
+                    {errors?.firstName?.type === "maxLength" && (
+                        <p>First name cannot exceed 20 characters</p>
+                    )}
+                    {errors?.firstName?.type === "pattern" && (
+                    <p>Alphabetical characters only</p>
+                    )}
+
+                    <label>Tussenvoegsel</label>
+                        <input {...register("middleName", { pattern: /^[A-Za-z]+$/i })} />
+                        {errors?.lastName?.type === "pattern" && (
+                            <p>Alphabetical characters only</p>
+                    )}
+
+
+                    <label>Achternaam</label>
+                        <input {...register("lastName", { pattern: /^[A-Za-z]+$/i })} />
+                        {errors?.lastName?.type === "pattern" && (
+                            <p>Alphabetical characters only</p>
+                    )}
+
+                    <label>Email address</label>
+                    <input type="email" variant="loginform" onChange={(e) => {
+                        setUserEmail(e.target.value);
+                    } } />
+                   
+                    <label>Wachtwoord</label>
+                    <input variant="loginform" onChange={(e) => {
+                        setUserPassword(e.target.value);
+                    } } /> 
+                    
+                    <FormHelperText>We'll never share your details.</FormHelperText>
+                </form>
+
                 <FormControl>
                     <FormLabel>Voornaam</FormLabel>
                     <Input variant="loginform" onChange={(e) => {
