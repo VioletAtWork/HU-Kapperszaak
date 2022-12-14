@@ -43,4 +43,3 @@ RegisterForm.post("/api/insert", (req, res)=> {
 RegisterForm.listen(3002, () => {
     console.log("running on port 3002");
 });
-
