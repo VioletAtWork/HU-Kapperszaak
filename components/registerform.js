@@ -70,9 +70,10 @@ const RegisterForm = () => {
                 </FormControl>
 
                 <Button onClick={registrateUser}>Registreren</Button>
+                {/* <Button onClick={registrateUser}clearInput</Button>  */}
             </Container>
 
-        );
+        )
    }
        
 export default RegisterForm
