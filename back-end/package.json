@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "this is used to create a connection with the frontend",
   "main": "server.js",
+  "type":"module",
   "scripts": {
     "start": "node server.js",
     "devStart": "nodemon server.js",
