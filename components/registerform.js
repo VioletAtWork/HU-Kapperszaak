@@ -22,9 +22,9 @@ const RegisterForm = () => {
     const [userEmail, setUserEmail] = useState("");
     const [userPassword, setUserPassword] = useState("");
 
-/* THIS CONST FUNCTION IS LINKED WITH THE REGISTATION BUTTON, INFORMATION IS STORED INTO AN OBJECT SO IT CAN BE PULLED INTO THE BACKEND */
+/* THIS CONST FUNCTION IS LINKED WITH THE REGISTRATION BUTTON, INFORMATION IS STORED INTO AN OBJECT SO IT CAN BE PULLED INTO THE BACKEND */
 
-        const registrateUser = () => {
+        const registerUser = () => {
             Axios.post("http://localhost:3002/api/insert", {
                 userFirstName: userfirstName,
                 userMiddleName: usermiddleName,
@@ -69,7 +69,7 @@ const RegisterForm = () => {
                     <FormHelperText>We'll never share your details.</FormHelperText>
                 </FormControl>
 
-                <Button onClick={registrateUser}>Registreren</Button>
+                <Button onClick={registerUser}>Registreren</Button>
                 {/* <Button onClick={registrateUser}clearInput</Button>  */}
             </Container>
 
