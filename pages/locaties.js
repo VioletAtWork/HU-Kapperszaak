@@ -3,8 +3,8 @@ import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import { WorkGridItem } from '../components/griditem'
 
-import thumbnailRotterdam from '../public/images/locaties/thumbnailRotterdam.png'
-import thumbnailAmsterdam from '../public/images/locaties/thumbnailAmsterdam.png'
+import thumbnailRotterdam from '../../../Desktop/mennosFuckUp/public/images/locaties/thumbnailRotterdam.png'
+import thumbnailAmsterdam from '../../../Desktop/mennosFuckUp/public/images/locaties/thumbnailAmsterdam.png'
 
 const Locaties = () => (
     <Layout title="Locaties">

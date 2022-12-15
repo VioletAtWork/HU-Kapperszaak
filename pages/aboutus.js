@@ -2,13 +2,11 @@ import { Container, Heading, SimpleGrid, Divider } from '@chakra-ui/react'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
 
-const Reserve = () => (
-    <Layout title="Reserveren">
+const Aboutus = () => (
+    <Layout title="Team">
         <Container>
-            <Divider my={5} />
-
-            <Heading as="h3" fontSize={20} mb={4}>
-                Reserveren
+            <Heading as="h1" fontSize={20} mb={4}>
+                Over ons
             </Heading>
 
             <SimpleGrid columns={[1, 1, 2]} gap={6}>
@@ -16,12 +14,11 @@ const Reserve = () => (
                     <Divider my={5} />
                 </Section>
                 <Section>
+
                 </Section>
             </SimpleGrid>
-
-
         </Container>
     </Layout>
 )
 
-export default Reserve
+export default Aboutus

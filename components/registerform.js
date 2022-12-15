@@ -13,7 +13,6 @@ import {
 
 const RegisterForm = () => {
     return (
-
         <Container>
             <FormControl>
                 <FormLabel>Voornaam</FormLabel>
