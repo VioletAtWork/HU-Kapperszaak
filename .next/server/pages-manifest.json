@@ -2,7 +2,11 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+  "/": "pages/index.js",
+  "/ourteam": "pages/ourteam.js",
+  "/locaties": "pages/locaties.js",
+  "/locaties/rotterdam": "pages/locaties/rotterdam.js",
   "/login": "pages/login.js",
   "/reserve": "pages/reserve.js",
-  "/locaties": "pages/locaties.js"
+  "/locaties/amsterdam": "pages/locaties/amsterdam.js"
 }
