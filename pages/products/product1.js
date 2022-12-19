@@ -4,7 +4,7 @@ import {
     List,
     ListItem, Divider,
 } from '@chakra-ui/react'
-import {ProductTitle, ProductMeta} from '../../components/product'
+import {ProductTitle, ProductMeta} from '../../components/pagecomponents/Producten/product'
 import Layout from '../../components/layouts/article'
 import P from "../../components/paragraph"
 

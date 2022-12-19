@@ -4,6 +4,23 @@ import NextLink from "next/link";
 import {ChevronRightIcon} from "@chakra-ui/icons";
 import {Global} from "@emotion/react";
 
+export const ProductCard = ({ title, href, thumbnail, children }) => (
+    <Box w="25%" textAlign="center">
+        <LinkBox cursor="pointer">
+            <Image
+                alt={title}
+                src={thumbnail}
+                className="product-thumbnail"
+                loading="lazy"
+            />
+            <LinkOverlay href={href} target="_blank">
+                <Text mt={2}>{title}</Text>
+            </LinkOverlay>
+            <Text fontSize={14}>{children}</Text>
+        </LinkBox>
+    </Box>
+)
+
 export const ProductTitle = ({ children }) => (
     <Box>
         <NextLink href="/producten" passHref>

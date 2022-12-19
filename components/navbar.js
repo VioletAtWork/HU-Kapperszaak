@@ -72,7 +72,7 @@ const Navbar = props => {
                         Locaties
                     </LinkItem>
 
-                    <LinkItem href="/ourteam" path={path} >
+                    <LinkItem href="/overons" path={path} >
                         Over ons
                     </LinkItem>
 
