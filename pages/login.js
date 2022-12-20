@@ -7,8 +7,6 @@ import LoginForm from "../components/pagecomponents/Login/loginform";
 const Login = () => (
     <Layout title="Login">
         <Container>
-            <Divider my={2} />
-
             <SimpleGrid columns={[1, 1, 2]} gap={6}>
                 <Section>
                     <Heading as="h3" fontSize={20} mb={4}>

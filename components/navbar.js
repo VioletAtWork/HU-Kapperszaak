@@ -11,7 +11,7 @@ import {
     MenuList,
     MenuButton,
     IconButton,
-    useColorModeValue
+    useColorModeValue, Button, HStack
 } from '@chakra-ui/react'
 import ThemeToggleButton from './theme-toggle-button'
 import NextLink from 'next/link'
@@ -76,26 +76,26 @@ const Navbar = props => {
                         Over ons
                     </LinkItem>
 
-                    <LinkItem href="/reserve" path={path} >
-                        Reserveren
-                    </LinkItem>
-
                     <LinkItem href="/login" path={path} >
                         Inloggen
                     </LinkItem>
 
-                    <LinkItem href="/producten" path={path} >
-                        [temp]Producten
-                    </LinkItem>
 
-                    <LinkItem href="/admin" path={path} >
-                        [temp]Admin
-                    </LinkItem>
                 </Stack>
 
-                <Box flex={1} align="right">
+                <HStack
+                    direction={{ base: 'column', md: 'row' }}
+                    display={{ base: 'none', md: 'flex' }}
+                    width={{ base: 'full', md: 'auto' }}
+                    flex={1}
+                    align="right"
+                    mt={{ base: 8, md: 0 }}>
+                    <NextLink href="/reserveren" passHref>
+                        <Button colorScheme="teal">Reserveren</Button>
+                    </NextLink>
+
                     <ThemeToggleButton />
-                </Box>
+                </HStack>
             </Container>
         </Box>
     )

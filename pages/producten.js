@@ -65,8 +65,6 @@ const Producten = () => (
                 </NextLink>
             </Box>
 
-
-
             <SimpleGrid columns={[1, 1, 2]} gap={6}>
                 <Section>
 

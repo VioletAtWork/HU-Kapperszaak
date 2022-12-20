@@ -3,7 +3,6 @@ import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import Paragraph from "../components/paragraph";
 import {BioSection, BioYear} from "../components/bio";
-import {OverOnsGridItem} from "../components/griditem";
 
 const Overons = () => (
     <Layout title="Team">
