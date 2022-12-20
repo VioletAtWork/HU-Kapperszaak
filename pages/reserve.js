@@ -5,6 +5,8 @@ import Section from '../components/section'
 const Reserve = () => (
     <Layout title="Reserveren">
         <Container>
+            <Divider my={5} />
+
             <Heading as="h3" fontSize={20} mb={4}>
                 Reserveren
             </Heading>
