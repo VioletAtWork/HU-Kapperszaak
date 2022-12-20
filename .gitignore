@@ -76,3 +76,6 @@ node_modules
 .next/cache/images/7mO6qj3NPHsuw1JjPofHO+LIqIRW8LRirOU4TarjQ-M=/60.1671103004444.rhwM7DfE1yCqx8vwictMdO7+Bigo604OjxVEhzHHnQg=.webp
 .next/cache/images/7mO6qj3NPHsuw1JjPofHO+LIqIRW8LRirOU4TarjQ-M=/60.1670865841407.rhwM7DfE1yCqx8vwictMdO7+Bigo604OjxVEhzHHnQg=.webp
 .next/build-manifest.json
+*.pack
+*.pack
+*.pack
