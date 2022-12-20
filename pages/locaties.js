@@ -12,7 +12,7 @@ import Drukte from "../components/drukte";
 
 const Locaties = () => (
     <Layout title="Locaties">
-        <Container>
+        <Container p={2}>
             <Heading as="h3" fontSize={20} mb={4}>
                 Locaties
             </Heading>

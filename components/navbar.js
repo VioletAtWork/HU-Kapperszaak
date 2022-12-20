@@ -67,20 +67,26 @@ const Navbar = props => {
                     flexGrow={1}
                     mt={{ base: 4, md: 0 }}
                 >
-
-                    <LinkItem href="/locaties" path={path}>
+                    <LinkItem
+                        href="/locaties"
+                        path={path}
+                    >
                         Locaties
                     </LinkItem>
 
-                    <LinkItem href="/overons" path={path} >
+                    <LinkItem
+                        href="/overons"
+                        path={path}
+                    >
                         Over ons
                     </LinkItem>
 
-                    <LinkItem href="/login" path={path} >
+                    <LinkItem
+                        href="/login"
+                        path={path}
+                    >
                         Inloggen
                     </LinkItem>
-
-
                 </Stack>
 
                 <HStack
@@ -89,9 +95,16 @@ const Navbar = props => {
                     width={{ base: 'full', md: 'auto' }}
                     flex={1}
                     align="right"
+                    spacing="24px"
                     mt={{ base: 8, md: 0 }}>
-                    <NextLink href="/reserveren" passHref>
-                        <Button colorScheme="teal">Reserveren</Button>
+                    <NextLink
+                        href="/reserveren"
+                        passHref>
+                        <Button
+                            colorScheme="teal"
+                        >
+                            Afspraak maken
+                        </Button>
                     </NextLink>
 
                     <ThemeToggleButton />

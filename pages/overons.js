@@ -12,22 +12,40 @@ const Overons = () => (
                     Ons team
                 </Heading>
             </Layout>
-
             <Layout variant="hidden">
                 <Section delay={0.4} mb={5} title="Bio">
+                    <Heading as="h2" fontSize={20} mb={4} variant="section-title" color="lightgreen">
+                        Tijdlijn
+                    </Heading>
+                    Kopje 1
                     <BioSection>
                         <BioYear>2007</BioYear>
                         Opgericht.
                     </BioSection>
-                    <Heading as="h2" fontSize={20} mb={4} variant="section-title" color="lightgreen">
-                        Wie zijn wij?
-                    </Heading>
+                    Kopje 2
+                    <BioSection>
+                        <BioYear>2008</BioYear>
+                        En toen.
+                    </BioSection>
+                    Kopje 3
+                    <BioSection>
+                        <BioYear>2009</BioYear>
+                        En dan.
+                    </BioSection>
+                    Kopje 4
+                    <BioSection>
+                        <BioYear>2022</BioYear>
+                        En nu?
+                    </BioSection>
                 </Section>
             </Layout>
 
             <Layout variant="hidden">
                 <SimpleGrid columns={[1, 1, 2]} gap={10}>
                     <Section>
+                        <Heading as="h2" fontSize={20} mb={4} variant="section-title" color="lightgreen">
+                            Wie zijn wij?
+                        </Heading>
                         <Text>Wij bestaan al 15 jaar! Met 1 salon in de mooiste stad van het land zijn wij super makkelijk.</Text>
                         <Text>Je mag gerust binnenlopen of afspraak maken. Wij zijn een unieke kappersformule en leveren goede
                             kwa liteit voor een mooie prijs.</Text>
