@@ -10,7 +10,7 @@ const db = mysql.createPool({
     host: "localhost",
     user: "sqluser",
     password: "password",
-    database: "kapperzaak",
+    database: "kapperszaakDB",
 });
 
 /* THESE LINES ARE NEEDED TO BE ABLE TO GRAB A VARIABLE FROM THE OBJECT SEND FROM THE FRONTEND */
@@ -31,7 +31,7 @@ RegisterForm.post("/api/insert", (req, res)=> {
 
 /* INSERT STATEMENT OF VARIBLES PULLED FROM THE FRONTEND, SET INTO THE CORRECT TABLE (COLUMS) */
 
-    const sqlInsert = "INSERT INTO user_information (firstName, middleName, lastName, email, password) VALUES (?,?,?,?,?)"
+    const sqlInsert = "INSERT INTO userInformation (firstName, middleName, lastName, email, password) VALUES (?,?,?,?,?)"
     db.query(sqlInsert, [userfirstname, usermiddlename, userlastname, useremail, userpassword], (err, result)=> {
         console.log(result);
     })
