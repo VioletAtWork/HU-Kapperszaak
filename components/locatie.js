@@ -18,7 +18,13 @@ export const Title = ({ children }) => (
 )
 
 export const LocatieImage = ({ src, alt }) => (
-    <Image borderRadius="lg" w="full" src={src} alt={alt} mb={4} />
+    <Image
+        borderRadius="lg"
+        w="full" src={src}
+        alt={alt}
+        mb={4}
+        loading="lazy"
+    />
 )
 
 export const Meta = ({ children }) => (

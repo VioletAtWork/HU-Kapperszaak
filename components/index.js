@@ -32,7 +32,7 @@ const Page = () => {
                     Locaties
                 </Heading>
                 <Box align="center" my={4}>
-                    <NextLink href="LocatiesPage/locaties">
+                    <NextLink href="/locaties">
                         <Button rightIcon={<ChevronRightIcon />} colorScheme="teal" variant="outline">
                             Locaties
                         </Button>
