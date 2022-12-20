@@ -84,6 +84,13 @@ const Navbar = props => {
                         Inloggen
                     </LinkItem>
 
+                    <LinkItem href="/producten" path={path} >
+                        Producten
+                    </LinkItem>
+
+                    <LinkItem href="/admin" path={path} >
+                        Admin
+                    </LinkItem>
                 </Stack>
 
                 <Box flex={1} align="right">

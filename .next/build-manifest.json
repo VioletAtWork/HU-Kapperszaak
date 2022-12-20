@@ -35,30 +35,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/locaties.js"
     ],
-    "/locaties/amsterdam": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/locaties/amsterdam.js"
-    ],
-    "/locaties/rotterdam": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/locaties/rotterdam.js"
-    ],
-    "/login": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/login.js"
-    ],
     "/ourteam": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/ourteam.js"
-    ],
-    "/reserve": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/reserve.js"
     ]
   },
   "ampFirstPages": []
