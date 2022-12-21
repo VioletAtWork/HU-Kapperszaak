@@ -101,9 +101,9 @@ const Navbar = props => {
                         href="/reserveren"
                         passHref>
                         <Button
-                            colorScheme="teal"
+                            colorScheme="red"
                         >
-                            Afspraak maken
+                            Reserveren
                         </Button>
                     </NextLink>
 
