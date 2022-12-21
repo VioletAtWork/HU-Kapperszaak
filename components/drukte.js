@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import * as d3 from 'd3';
+import data from '../MachineLearning/JupyterNotebook/submission.csv';
 import {
     Flex,
     Box,
@@ -12,10 +14,13 @@ import {
 } from '@chakra-ui/react'
 
 const Drukte = () => {
+    useEffect(() => {
+        d3.csv(data, function(data) { console.log(data); });
+    }, []);
     return (
-        <Container>
-            <Button>Drukte</Button>
-        </Container>
+        <div>
+
+        </div>
     )
 }
 
