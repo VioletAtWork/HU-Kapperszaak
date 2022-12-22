@@ -27,9 +27,9 @@ const LoginForm = () => {
             }).then((response) => {
               
                 if (response.data.message) {
-                    setLoginStatus(response.data.message)
+                    setLoginStatus(response.data.message) // Message when user inlog in incorrect
                 } else {
-                    setLoginStatus(response.data[0].message)        // Message when user is correctly logged in
+                    setLoginStatus(response.data.conformation) // Message when user is correctly logged in
                 }
             });
         };
