@@ -131,7 +131,15 @@
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	!function() {
+<<<<<<< HEAD
 /******/ 		__webpack_require__.h = function() { return "d0c034dac4ed6897"; }
+=======
+<<<<<<< HEAD
+/******/ 		__webpack_require__.h = function() { return "bb8e4647cfb99118"; }
+=======
+/******/ 		__webpack_require__.h = function() { return "91e1a4d1aa3bff67"; }
+>>>>>>> b15965f5c2d1f1eca8c0507398931960134ba4cc
+>>>>>>> origin/Roald
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
