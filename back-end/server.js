@@ -27,8 +27,8 @@ login.use(cors());
 login.use(express.json())
 login.use(bodyParser.urlencoded({ extended: true }));
 
-/* REGISTER --> VARIBLES PULLED FROM FRONTEND */
-/* REGISTER --> INSERT STATEMENT OF PARAMETER VARIBLES - SQL injection preventing - QUERY INSERT INTO DATABASE */
+/* REGISTER --> VARIABLES PULLED FROM FRONTEND */
+/* REGISTER --> INSERT STATEMENT OF PARAMETER VARIABLES - SQL injection preventing - QUERY INSERT INTO DATABASE */
 
 register.post("/register", (req, res)=> {
     const userfirstname = req.body.userFirstName
