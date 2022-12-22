@@ -37,13 +37,6 @@ register.post("/register", (req, res)=> {
     const useremail = req.body.userEmail
     const userpassword = req.body.userPassword
 
-<<<<<<< HEAD
-
-/* REGISTER --> INSERT STATEMENT OF PARAMETER VARIBLES - SQL injection preventing - QUERY INSERT INTO DATABASE */
-
-    const sqlInsert = "INSERT INTO userinformation (email, password, firstName, middleName, lastName) VALUES (?,?,?,?,?)"
-    db.query(sqlInsert, [userfirstname, usermiddlename, userlastname, useremail, userpassword], (err, result)=> {
-=======
     bcrypt.hash(userpassword, saltRounds, (err, passwordHash) => { // PASSWORD HASH + ADDING SALT
         if (err) {
             console.log(err)
@@ -52,7 +45,6 @@ register.post("/register", (req, res)=> {
     const sqlInsert = "INSERT INTO userinformation (email, password, firstName, middleName, lastName) VALUES (?,?,?,?,?)"
             
        db.query(sqlInsert, [useremail, passwordHash, userfirstname, usermiddlename, userlastname], (err, result)=> {
->>>>>>> origin/Roald
         console.log(result);
         });  
     });
