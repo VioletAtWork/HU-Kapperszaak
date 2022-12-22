@@ -17,13 +17,20 @@ const LoginForm = () => {
     const [loginemail, setLoginEmail] = useState("");
     const [loginpassword, setLoginPassword] = useState("");
 
+    const [loginstatus, setLoginStatus] = useState("");
+
 
         const loginUser = () => {
             Axios.post("http://localhost:3002/userlogin", {
                 loginEmail: loginemail,
                 loginPassword: loginpassword,
             }).then((response) => {
-              console.log(response);
+              
+                if (response.data.message) {
+                    setLoginStatus(response.data.message)
+                } else {
+                    setLoginStatus(response.data[0].message)        // Message when user is correctly logged in
+                }
             });
         };
 
@@ -31,7 +38,7 @@ const LoginForm = () => {
         <Container>
             <FormControl>
                 
-                <FormLabel>
+                <FormLabel>                   
                     Email address
                 </FormLabel>
                 <Input type="email" variant="loginform" onChange={(e) => {
@@ -47,6 +54,8 @@ const LoginForm = () => {
                 <FormHelperText>
                     Wachtwoord vergeten?
                 </FormHelperText>
+                
+                <h5>{loginstatus}</h5>
             </FormControl>
 
             <Button onClick={loginUser}>Inloggen</Button>

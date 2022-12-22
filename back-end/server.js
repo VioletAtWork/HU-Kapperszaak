@@ -5,6 +5,9 @@ const register = express();
 const login = express();
 import { createPool } from "mysql";
 
+import bcrypt from 'bcrypt'; // BCRYPT IS THE ENCRYPTION ALGORITHM
+const saltRounds = 10;
+
 /* DATABASE CONNECTION (Root = default user) */
 
 const db = createPool({
@@ -25,6 +28,7 @@ login.use(express.json())
 login.use(bodyParser.urlencoded({ extended: true }));
 
 /* REGISTER --> VARIBLES PULLED FROM FRONTEND */
+/* REGISTER --> INSERT STATEMENT OF PARAMETER VARIBLES - SQL injection preventing - QUERY INSERT INTO DATABASE */
 
 register.post("/register", (req, res)=> {
     const userfirstname = req.body.userFirstName
@@ -33,14 +37,26 @@ register.post("/register", (req, res)=> {
     const useremail = req.body.userEmail
     const userpassword = req.body.userPassword
 
+<<<<<<< HEAD
 
 /* REGISTER --> INSERT STATEMENT OF PARAMETER VARIBLES - SQL injection preventing - QUERY INSERT INTO DATABASE */
 
     const sqlInsert = "INSERT INTO userinformation (email, password, firstName, middleName, lastName) VALUES (?,?,?,?,?)"
     db.query(sqlInsert, [userfirstname, usermiddlename, userlastname, useremail, userpassword], (err, result)=> {
+=======
+    bcrypt.hash(userpassword, saltRounds, (err, passwordHash) => { // PASSWORD HASH + ADDING SALT
+        if (err) {
+            console.log(err)
+        }       
+    
+    const sqlInsert = "INSERT INTO userinformation (email, password, firstName, middleName, lastName) VALUES (?,?,?,?,?)"
+            
+       db.query(sqlInsert, [useremail, passwordHash, userfirstname, usermiddlename, userlastname], (err, result)=> {
+>>>>>>> origin/Roald
         console.log(result);
-    })   
-});
+        });  
+    });
+}); 
 
 /* Login --> */
 login.post("/userlogin", (req, res)=> {
@@ -55,13 +71,13 @@ login.post("/userlogin", (req, res)=> {
     db.query(sqlSelect, [loginemail, loginpassword],
         (err, result) => {
             if (err) {
-                res.send({ err: err} );    
+                res.send({ err: err });    
             }
 
             if (result.length > 0) {
                 res.send(result); // Mesage that is send back to the frontend when inlog is correct
             } else {
-                res.send({ message: "Emai of wachtwoord is incorrect!"}); //Message that is send back to the frontend when inlog is incorrect
+                res.send({ message: "Email of wachtwoord is incorrect!"}); //Message that is send back to the frontend when inlog is incorrect
             }
         }           
     );
