@@ -13,7 +13,7 @@ const saltRounds = 10;
 const db = createPool({
     host: "localhost",
     user: "root",
-    password: "password",
+    password: "123456789",
     database: "kapperszaakdb",
 });
 
@@ -43,8 +43,12 @@ register.post("/register", (req, res)=> {
         }       
     
     const sqlInsert = "INSERT INTO userinformation (email, password, firstName, middleName, lastName) VALUES (?,?,?,?,?)"
+<<<<<<< Updated upstream
             
        db.query(sqlInsert, [useremail, passwordHash, userfirstname, usermiddlename, userlastname], (err, result)=> {
+=======
+    db.query(sqlInsert, [useremail, userpassword, userfirstname, usermiddlename, userlastname], (err, result)=> {
+>>>>>>> Stashed changes
         console.log(result);
         });  
     });

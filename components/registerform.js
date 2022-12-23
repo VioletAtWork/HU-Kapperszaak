@@ -24,7 +24,7 @@ const RegisterForm = () => {
 
 /* THIS CONST FUNCTION IS LINKED WITH THE REGISTRATION BUTTON, INFORMATION IS STORED INTO AN OBJECT SO IT CAN BE PULLED INTO THE BACKEND */
 
-        const registerUser = () => {
+        const registrateUser = () => {
             Axios.post("http://localhost:3001/register", {
                 userFirstName: userfirstName,
                 userMiddleName: usermiddleName,
@@ -69,11 +69,10 @@ const RegisterForm = () => {
                     <FormHelperText>We'll never share your details.</FormHelperText>
                 </FormControl>
 
-                <Button onClick={registerUser}>Registreren</Button>
-                {/* <Button onClick={registerUser}clearInput</Button>  */}
+                <Button onClick={registrateUser}>Registreren</Button>
             </Container>
 
-        )
+        );
    }
        
 export default RegisterForm
