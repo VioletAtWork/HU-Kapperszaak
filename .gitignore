@@ -79,3 +79,6 @@ node_modules
 *.pack
 *.pack
 *.pack
+.next
+*.next
+.next/*
