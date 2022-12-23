@@ -35,7 +35,7 @@ const RegisterForm = () => {
                 console.log("Succesfull");
             });
         };
-// kldjfkjlsdjfksklj
+        
 /* CONTAINER OF FORM FIELDS AND REGISTER BUTTON */
 
         return (
