@@ -1,30 +1,36 @@
-import express from 'express';
+import express, { response } from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 const register = express();
 const login = express();
 import { createPool } from "mysql";
+import bcrypt, { hash } from 'bcrypt'; // BCRYPT IS THE ENCRYPTION ALGORITHM
+const saltRounds = 10;
 
-/* DATABASE CONNECTION (Root = default user) */
+/* DATABASE CONNECTION --> */
 
 const db = createPool({
     host: "localhost",
-    user: "root",
-    password: "123456789",
+    user: "sqluser", //DEFAULT = "ROOT"
+    password: "password",
     database: "kapperszaakdb",
 });
 
-/* THESE LINES ARE NEEDED TO BE ABLE TO GRAB A VARIABLE FROM THE OBJECT SEND FROM THE FRONTEND */
+/* LOCALHOST --> */
+
+register.listen(3001, () => {
+    console.log("running on port 3001");
+});
+
+login.listen(3002, () => {
+    console.log("running on port 3002");
+});
+
+/* REGISTER --> */
 
 register.use(cors());
 register.use(express.json())
 register.use(bodyParser.urlencoded({ extended: true }));
-
-login.use(cors());
-login.use(express.json())
-login.use(bodyParser.urlencoded({ extended: true }));
-
-/* REGISTER --> VARIBLES PULLED FROM FRONTEND */
 
 register.post("/register", (req, res)=> {
     const userfirstname = req.body.userFirstName
@@ -33,46 +39,75 @@ register.post("/register", (req, res)=> {
     const useremail = req.body.userEmail
     const userpassword = req.body.userPassword
 
+// DATA ENCRYPTION USING BCRYPT AND SALT    
 
-/* REGISTER --> INSERT STATEMENT OF PARAMETER VARIBLES - SQL injection preventing - QUERY INSERT INTO DATABASE */
+    bcrypt.hash(userpassword, saltRounds, (err, passwordHash) => { 
+        if (err) {
+            console.log(err)
+        }
 
-    const sqlInsert = "INSERT INTO userinformation (email, password, firstName, middleName, lastName) VALUES (?,?,?,?,?)"
-    db.query(sqlInsert, [useremail, userpassword, userfirstname, usermiddlename, userlastname], (err, result)=> {
-        console.log(result);
-    })   
-});
+        bcrypt.hash(usermiddlename, saltRounds, (err, middleNameHash) => {
+                if (err) {
+                    console.log (err)
+                }
+        
+            bcrypt.hash(userlastname, saltRounds, (err, lastNameHash) => {
+                if (err) {
+                    console.log (err)
+                }
+            
+                bcrypt.hash(userfirstname, saltRounds, (err, firstNameHash) => {
+                    if (err) {
+                        console.log (err)
+                    }
+                
+// DATA INSERTION INTO THE DATABASE
+                    const sqlInsert = "INSERT INTO userinformation (email, password, firstName, middleName, lastName) VALUES (?,?,?,?,?)"
+                        
+                    db.query(sqlInsert, [useremail, passwordHash, firstNameHash, middleNameHash, lastNameHash], (err, result)=> {
+                        console.log(result);                   
+                        });
+                    });              
+                }); 
+            }); 
+        }); 
+    });
+ 
 
 /* Login --> */
+
+login.use(cors());
+login.use(express.json())
+login.use(bodyParser.urlencoded({ extended: true }));
+
 login.post("/userlogin", (req, res)=> {
 
     const loginemail = req.body.loginEmail
     const loginpassword = req.body.loginPassword
 
+    const sqlSelect = "SELECT email, password FROM userinformation WHERE email = ?"
 
-/* LOGIN --> SELCET ALL */
-    
-    const sqlSelect = "SELECT email, password FROM userinformation WHERE email = ? AND password = ?"
-    db.query(sqlSelect, [loginemail, loginpassword],
+    db.query(sqlSelect, [loginemail],
         (err, result) => {
             if (err) {
-                res.send({ err: err} );    
+                res.send({ err: err });    
             }
 
+// Comparison of the email input with the hashed password
+
             if (result.length > 0) {
-                res.send(result); // Mesage that is send back to the frontend when inlog is correct
+                bcrypt.compare(loginpassword, result[0].password, (err, response) => { 
+                        if (response) {
+                            res.send({ conformation: "Succesvol ingelogt!"}); // Message send when login is succesfull
+                        } else {
+                            res.send({ message: "Email of wachtwoord is incorrect!"}); //Message that is send back to the frontend when password is incorrect
+                        }
+                    }
+                );
+
             } else {
-                res.send({ message: "Emai of wachtwoord is incorrect!"}); //Message that is send back to the frontend when inlog is incorrect
+                res.send({ message: "Email of wachtwoord is incorrect!"}); //Message that is send back to the frontend when email is incorrect
             }
         }           
     );
-});
-
-/* LOCALHOST PORT (3001 (Registerform), 3002 (Loginform)) , npm run devStart , RUNS ON NODEMON */
-
-register.listen(3001, () => {
-    console.log("running on port 3001");
-});
-
-login.listen(3002, () => {
-    console.log("running on port 3002");
 });
