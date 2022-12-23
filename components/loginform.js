@@ -54,7 +54,8 @@ const LoginForm = () => {
                         setLoginPassword(e.target.value);
                     } } />
                 <FormHelperText>
-                    Wachtwoord vergeten?
+                    Wachtwo
+                    ord vergeten?
                 </FormHelperText>
                 
                 <h5>{loginstatus}</h5>
