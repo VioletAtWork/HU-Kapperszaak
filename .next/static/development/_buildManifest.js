@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 self.__BUILD_MANIFEST = {__rewrites:{beforeFiles:[],afterFiles:[],fallback:[]},"/":["static\u002Fchunks\u002Fpages\u002Findex.js"],"/_error":["static\u002Fchunks\u002Fpages\u002F_error.js"],"/login":["static\u002Fchunks\u002Fpages\u002Flogin.js"],sortedPages:["\u002F","\u002F_app","\u002F_error","\u002Flogin"]};self.__BUILD_MANIFEST_CB && self.__BUILD_MANIFEST_CB()
+=======
+self.__BUILD_MANIFEST = {__rewrites:{beforeFiles:[],afterFiles:[],fallback:[]},"/":["static\u002Fchunks\u002Fpages\u002Findex.js"],"/404":["static\u002Fchunks\u002Fpages\u002F404.js"],"/_error":["static\u002Fchunks\u002Fpages\u002F_error.js"],"/locaties":["static\u002Fchunks\u002Fpages\u002Flocaties.js"],"/login":["static\u002Fchunks\u002Fpages\u002Flogin.js"],"/ourteam":["static\u002Fchunks\u002Fpages\u002Fourteam.js"],"/reserve":["static\u002Fchunks\u002Fpages\u002Freserve.js"],sortedPages:["\u002F","\u002F404","\u002F_app","\u002F_error","\u002Flocaties","\u002Flogin","\u002Fourteam","\u002Freserve"]};self.__BUILD_MANIFEST_CB && self.__BUILD_MANIFEST_CB()
+>>>>>>> 6a46b40e8d5162ba39e45ae463050462fcc1f715

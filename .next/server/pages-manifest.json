@@ -2,6 +2,15 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+<<<<<<< HEAD
   "/login": "pages/login.js",
   "/": "pages/index.js"
+=======
+  "/reserve": "pages/reserve.js",
+  "/login": "pages/login.js",
+  "/": "pages/index.js",
+  "/404": "pages/404.js",
+  "/ourteam": "pages/ourteam.js",
+  "/locaties": "pages/locaties.js"
+>>>>>>> 6a46b40e8d5162ba39e45ae463050462fcc1f715
 }
