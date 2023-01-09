@@ -11,8 +11,8 @@ const saltRounds = 10;
 
 const db = createPool({
     host: "localhost",
-    user: "sqluser", //DEFAULT = "ROOT"
-    password: "password",
+    user: "root", //DEFAULT = "ROOT"
+    password: "123456789",
     database: "kapperszaakdb",
 });
 
