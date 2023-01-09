@@ -65,7 +65,7 @@ register.post("/register", (req, res)=> {
                     const sqlInsert = "INSERT INTO userinformation (email, password, firstName, middleName, lastName) VALUES (?,?,?,?,?)"
                         
                     db.query(sqlInsert, [useremail, passwordHash, firstNameHash, middleNameHash, lastNameHash], (err, result)=> {
-                        console.log(result);                   
+                        console.log(err);                   
                         });
                     });              
                 }); 
