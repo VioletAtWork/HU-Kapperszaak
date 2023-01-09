@@ -1,22 +1,26 @@
-import {Box, Button, Container, Divider, Heading, Image, Link, Text, useColorModeValue} from "@chakra-ui/react";
+import {Box, Button, Divider, Heading, Text, useColorModeValue} from "@chakra-ui/react";
 import Section from "../components/section";
 import {ChevronRightIcon} from "@chakra-ui/icons";
 import NextLink from "next/link";
-import Layout from "../components/layouts/article";
 
 const Page = () => {
     return (
-        <Box>
-            <Section>
+        <Box
+        >
+            <Box className="hero-title"
+                 p={10}
+            >
                 <Heading
                     as="h1"
-                    mb={4}
-                    color={useColorModeValue('darkred', 'darkred')}
+                    color={useColorModeValue('black', 'whiteAlpha.950')}
                     variant="page-title"
+                    fontSize={64}
+                    mb={4}
                 >
                     HairLab
                 </Heading>
-            </Section>
+            </Box>
+
             <Box
                 borderRadius="lg"
                 mb={6}
@@ -47,6 +51,7 @@ const Page = () => {
                     </Button>
                 </NextLink>
             </Box>
+            <Divider my={6}/>
 
             <Section delay={0.2}>
                 <Box align="center" my={6} gap={6}>
@@ -65,53 +70,65 @@ const Page = () => {
                         textAlign="center"
                         display={{md: 'flex'}}>
                         <Box flexGrow={1}>
-                            <NextLink href="/admin" passHref>
-                                <Button colorScheme="red" variant="outline">
-                                    Admin
-                                </Button>
-                            </NextLink>
-
-                            <NextLink href="/druktePagina" passHref>
-                                <Button colorScheme="red" variant="outline">
-                                    Drukte
-                                </Button>
-                            </NextLink>
-
-                            <NextLink href="/reserveren" passHref>
-                                <Button colorScheme="red" variant="outline">
-                                    Reserveren
-                                </Button>
-                            </NextLink>
-
-                            <NextLink href="/login" passHref>
-                                <Button colorScheme="red" variant="outline">
-                                    Inloggen
-                                </Button>
-                            </NextLink>
 
                             <NextLink href="/locaties" passHref>
-                                <Button colorScheme="red" variant="outline">
+                                <Button colorScheme="red" variant="outline"
+                                        style={{borderTopRightRadius: 0, borderBottomRightRadius: 0}}
+                                >
                                     Locaties
                                 </Button>
                             </NextLink>
 
+                            <NextLink href="/overons" passHref>
+                                <Button colorScheme="red" variant="outline"
+                                        style={{borderRadius: 0}}
+                                >
+                                    Over ons</Button>
+                            </NextLink>
+
+                            <NextLink href="/reserveren" passHref>
+                                <Button colorScheme="red" variant="outline"
+                                        style={{borderRadius: 0}}
+                                >
+                                    Reserveren
+                                </Button>
+                            </NextLink>
+
+                            <NextLink href="/inloggen" passHref>
+                                <Button colorScheme="red" variant="outline"
+                                        style={{borderRadius: 0}}
+                                >
+                                    Inloggen
+                                </Button>
+                            </NextLink>
 
                             <NextLink href="/producten" passHref>
-                                <Button colorScheme="red" variant="outline">
+                                <Button colorScheme="red" variant="outline"
+                                        style={{borderRadius: 0}}
+                                >
                                     Producten
                                 </Button>
                             </NextLink>
 
+                            <NextLink href="/druktePagina" passHref>
+                                <Button colorScheme="red" variant="outline"
+                                        style={{borderRadius: 0}}
+                                >
+                                    Drukte
+                                </Button>
+                            </NextLink>
 
-                            <NextLink href="/overons" passHref>
-                                <Button colorScheme="red" variant="outline">
-                                    Over ons</Button>
+                            <NextLink href="/admin" passHref>
+                                <Button colorScheme="red" variant="outline"
+                                        style={{borderTopLeftRadius: 0, borderBottomLeftRadius: 0}}
+                                >
+                                    Admin
+                                </Button>
                             </NextLink>
                         </Box>
                     </Box>
                 </Box>
             </Section>
-
         </Box>
     )
 }

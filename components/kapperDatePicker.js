@@ -1,16 +1,58 @@
-import {Box} from "@chakra-ui/react";
-import DatePicker from "react-datepicker";
+import React from 'react';
 
-import "react-datepicker/dist/react-datepicker.css";
-import {useState} from "react";
+import { format } from 'date-fns';
+import { DayPicker } from 'react-day-picker';
+import 'react-day-picker/dist/style.css';
+import {Box, Text} from "@chakra-ui/react";
 
-const KapperDatePicker = () => {
-    const [startDate, setStartDate] = useState(new Date());
+export default function KapperDatePicker() {
+    const [selected, setSelected] = React.useState(new Date());
+
+    let footerDatePicker = <p>Kies een dag.</p>;
+    if (selected) {
+        footerDatePicker =
+            <Box>
+                <p
+                    style={{
+                        color: 'var(--chakra-colors-gray-500)',
+                        fontSize: '0.875rem',   // 14px
+                        fontWeight: 400,
+                        lineHeight: 1.5,
+                        margin: 0,
+                    }}
+                >
+                    Je hebt gekozen voor:
+                </p>
+                <p
+                    style={{
+                        fontWeight: 'bold',
+                        fontSize: '1.2em',
+                    }}
+                >
+                    {format(selected, 'PP')}
+                </p>
+            </Box>
+        ;
+    }
     return (
-        <Box>
+        <Box
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: '16px',
+            }}
+            p={4}
+            borderRadius="md"
 
-            <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
-        </Box>);
-};
+        >
+            <DayPicker
+                selectedDays={selected}
+                onDayClick={setSelected}
+            />
+            {footerDatePicker}
 
-export default KapperDatePicker
+        </Box>
+    );
+}

@@ -11,20 +11,21 @@ import {
     MenuList,
     MenuButton,
     IconButton,
-    useColorModeValue, Button, HStack
+    useColorModeValue, Button, HStack, VStack
 } from '@chakra-ui/react'
 import ThemeToggleButton from './theme-toggle-button'
 import NextLink from 'next/link'
 
 const LinkItem = ({ href, path, children }) => {
     const active = path === href
-    const inactiveColor = useColorModeValue('gray.350', 'whiteAlpha.900')
+    const inactiveColor = useColorModeValue('#000', '#fff')
     return (
         <NextLink href={href} passHref scroll={false}>
             <Link
                 p={2}
                 bg={active ? 'grassTeal' : undefined}
-                color={active ? '#202023' : inactiveColor}
+                color={active ? useColorModeValue("#000", '#ffd') : inactiveColor}
+                style={active ? { fontWeight: 'bold' } : undefined}
             >
                 {children}
             </Link>
@@ -34,81 +35,71 @@ const LinkItem = ({ href, path, children }) => {
 
 const Navbar = props => {
     const { path } = props
-
     return (
         <Box
-            position="fixed"
+            m={6}
+            /* !!! Master container van Navbar !!! */
             as="nav"
-            w="100%"
-            bg={useColorModeValue('#ffffff40', '#20202380')}
-            css={{ backdropFilter: 'blur(10px)' }}
-            zIndex={1}
+            css={{
+                backdropFilter: 'blur(10px)',
+                WebkitBackdropFilter: 'blur(10px)',
+        }}
             {...props}
         >
-            <Container
-                display="flex"
-                p={2}
-                maxW="container.md"
-                wrap="wrap"
-                align="center"
-                justify="space-between"
-            >
-                <Flex align="center" mr={5}>
-                    <Heading as="h1" size="lg" letterSpacing={'tighter'}>
-                        <Logo />
-                    </Heading>
+            <Container as={Flex} maxW="container.xl" align="center" >
+                <Flex mr={4}>
+                    <Logo />
                 </Flex>
-
-                <Stack
-                    direction={{ base: 'column', md: 'row' }}
-                    display={{ base: 'none', md: 'flex' }}
-                    width={{ base: 'full', md: 'auto' }}
-                    alignItems="center"
-                    flexGrow={1}
-                    mt={{ base: 4, md: 0 }}
-                >
-                    <LinkItem
-                        href="/locaties"
-                        path={path}
-                    >
-                        Locaties
-                    </LinkItem>
-
-                    <LinkItem
-                        href="/overons"
-                        path={path}
-                    >
-                        Over ons
-                    </LinkItem>
-
-                    <LinkItem
-                        href="/login"
-                        path={path}
-                    >
-                        Inloggen
-                    </LinkItem>
-                </Stack>
-
-                <HStack
-                    direction={{ base: 'column', md: 'row' }}
-                    display={{ base: 'none', md: 'flex' }}
-                    width={{ base: 'full', md: 'auto' }}
-                    flex={1}
-                    align="right"
-                    spacing="24px"
-                    mt={{ base: 8, md: 0 }}>
+                <HStack h="100%" as="nav" align="center" ml={10}>
                     <NextLink
                         href="/reserveren"
                         passHref>
                         <Button
-                            colorScheme="red"
+                            bg="transparent"
                         >
-                            Reserveren
+                            Een afspraak maken
+                        </Button>
+                    </NextLink>
+                    <NextLink href="/locaties" passHref>
+                        <Button
+                            bg="transparent"
+                        >
+                            Locaties
+                        </Button>
+                    </NextLink>
+                    <NextLink href="/overons" passHref>
+                        <Button
+                            bg="transparent"
+                        >
+                            Over ons
                         </Button>
                     </NextLink>
 
-                    <ThemeToggleButton />
+
                 </HStack>
+
+                <Flex align="center" ml="auto"
+                >
+                    <HStack
+                    >
+                        <NextLink href="/inloggen" passHref>
+                            <Button
+                                bg="transparent"
+                            >
+                                Inloggen
+                            </Button>
+                        </NextLink>
+                        <NextLink href="/inloggen" passHref>
+                            <Button
+                                bg="transparent"
+                            >
+                                Registreren
+                            </Button>
+                        </NextLink>
+
+                        <ThemeToggleButton />
+                    </HStack>
+                </Flex>
             </Container>
         </Box>
     )

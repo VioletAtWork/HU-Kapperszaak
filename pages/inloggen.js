@@ -5,7 +5,7 @@ import RegisterForm from "../components/pagecomponents/Login/registerform";
 import LoginForm from "../components/pagecomponents/Login/loginform";
 
 const Login = () => (
-    <Layout title="Login">
+    <Layout title="Inloggen">
         <SimpleGrid columns={[1, 1, 2]} gap={6}>
             <Section>
                 <Heading as="h3" fontSize={20} mb={4}>
@@ -23,7 +23,6 @@ const Login = () => (
                 <Divider my={5} />
             </Section>
         </SimpleGrid>
-
     </Layout>
 )
 

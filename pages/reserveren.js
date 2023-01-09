@@ -1,23 +1,17 @@
 import {
     Container,
     Heading,
-    SimpleGrid,
     Divider,
-    GridItem,
     Box,
     Text,
-    Grid,
     Button,
     LinkOverlay,
-    LinkBox, Select
+    LinkBox, Select, Input, FormControl, FormLabel, useColorModeValue
 } from '@chakra-ui/react'
-import Layout from '../components/layouts/article'
-import Section from '../components/section'
 import NextLink from "next/link";
 import Image from "next/image";
 import thumbnailKapper from "../public/images/haircut-dark.png";
 import { MdArrowDropDown } from "react-icons/md";
-import DatePicker from "react-datepicker";
 import KapperDatePicker from "../components/kapperDatePicker";
 
 export const Kapper = ({ naamKapper, children }) => (
@@ -55,124 +49,245 @@ export const Behandeling = ({ naamBehandeling, children }) => (
 )
 
 const Reserven = () => (
-    <Layout title="Reserveren">
-        <Container p={2}>
+    <Container w="100%" pt={2}>
+        <Box
+            w="100%"
+            h="100%"
+            borderWidth="1px"
+            borderRadius="lg"
+            overflow="hidden"
+            style=
+                {{
+                    padding: "20px",
+                    background: useColorModeValue("rgba(250,88,2,0.1)", "rgba(255,255,255,1)"),
+                    color: "#000",
+                    width: "100%",
+                    maxWidth: "500px",
+                    borderRadius: "4px",
+                    zIndex: "100"}}
+        >
+
+
             <Heading as="h1" mb={4}>
                 Maak nu een afspraak!
             </Heading>
-            <Divider my={5} />
-            <Box position="relative" h="100vh">
-                <Box style={{ padding: "16px", background: "#edf2f7", color: "#000" }}>
-                    {/* Datum */}
-                    <Box mb={4}>
-                        <Heading as="h3" mb={4}>
-                            Datum
-                        </Heading>
-                        <KapperDatePicker />
-                    </Box>
+            <Divider mb={4} />
 
-                    {/* Tijd */}
-                    <Box>
-                        <Heading as="h3" mb={4}>
-                            Tijd
-                        </Heading>
-                        <Select
-                            icon={<MdArrowDropDown />}
-                            bg="teal.400"
-                            colorScheme='teal'
-                            placeholder="(Selecteer een tijd)"
-                            variant="filled"
-                            mb={4}
-                            color="#fff"
-                        >
-                            <option value="10u">10:00</option>
-                            <option value="11u">11:00</option>
-                            <option value="12u">12:00</option>
-                            <option value="13u">13:00</option>
-                            <option value="14u">14:00</option>
-                            <option value="15u">15:00</option>
-                            <option value="16u">16:00</option>
-                            <option value="17u">17:00</option>
-                        </Select>
-                    </Box>
-
-                    {/* Behandeling */}
-                    <Box>
-                        <Heading as="h3" mb={4}>
-                            Behandeling
-                        </Heading>
-                        <Select
-                            bg="teal.400"
-                            colorScheme='teal'
-                            placeholder="(Selecteer een behandeling)"
-                            variant="filled"
-                            mb={4}
-                            color="#fff"
-                        >
-                            <option value="lang">Lange knipbeurt</option>
-                            <option value="kort">Wat van de kantjes</option>
-                            <option value="kaal">Alles eraf</option>
-                            <option value="razorfade">Razorfade / Opscheer</option>
-                        </Select>
-                    </Box>
-
-                    {/* Kapper */}
-                    <Box>
-                        <Heading as="h3" mb={4}>
-                            Kapper
-                        </Heading>
-                        <Select
-                            icon={<MdArrowDropDown />}
-                            bg="teal.400"
-                            colorScheme='teal'
-                            placeholder="(Kies een kapper)"
-                            variant="filled"
-                            mb={4}
-                            color="#fff"
-                        >
-                            <option value="marjolein">Marjolein</option>
-                            <option value="martijn">Martijn</option>
-                            <option value="tina">Tina</option>
-                            <option value="martin">Martin</option>
-                        </Select>
-                        <SimpleGrid columns={[1, 1, 6]}>
-                            <Kapper naam={"Marjolein"} children={<Text>Tekst over kapper</Text>} />
-                            <Kapper naam={"Martijn"} children={<Text>Tekst over kapper</Text>} />
-                            <Kapper naam={"Tina"} children={<Text>Tekst over kapper</Text>} />
-                            <Kapper naam={"Martin"} children={<Text>Tekst over kapper</Text>} />
-                        </SimpleGrid>
-                    </Box>
-                </Box>
-
-                {/* Afspraak bevestigen */}
-                <NextLink
-                    href="/" passHref>
-                    <Button
-                        colorScheme="teal"
-                        variant="solid"
-                        size="lg"
-                        w="100%"
-
-                    >
-                        Afspraak bevestigen
-                    </Button>
-                </NextLink>
+            {/* Behandeling */}
+            <Box >
+                <Heading as="h3" mb={4}>
+                    Behandeling
+                </Heading>
+                <Text mb={2}>
+                    Voor welke behandeling wilt u een afspraak maken?
+                </Text>
+                <Select
+                    borderColor="black"
+                    colorScheme='teal'
+                    placeholder="Kies een behandeling"
+                    variant="filled"
+                    mb={4}
+                    bg="rgba(255,255,255,1)"
+                >
+                    <option value="lang">Lange knipbeurt</option>
+                    <option value="kort">Wat van de kantjes</option>
+                    <option value="kaal">Alles eraf</option>
+                    <option value="razorfade">Razorfade / Opscheer</option>
+                </Select>
             </Box>
 
-            <Divider my={6} />
+            <Heading as="h3" mb={4}>
+                Datum
+            </Heading>
+            {/* Datum */}
+            <Box style={{
+                /*
+                                    background: "rgba(255,255,255,0.1)",
+                */
+                border: "2px solid rgba(0,0,0,1)",
+                borderRadius: "4px",
+                padding: "20px",
+                marginBottom: "20px",
+                color: "#000",
+                fontSize: "16px",
+                fontWeight: "500",
+                lineHeight: "1.5",
+                width: "100%",
+                zIndex: "100"}}
+            >
 
-            <SimpleGrid columns={[1, 1, 1]} gap={6} align="center">
-                <Heading as="h2">
-                    Bevestigen...
+                <Box
+                    mb={4}
+                    align={"center"}
+                >
+
+                    <Box
+                        align="left"
+                        style={{
+                            padding: "4px",
+                            color: "#000",
+                            width: "50%",
+                            borderRadius: "4px"
+                        }}
+                    >
+                        <KapperDatePicker />
+                    </Box>
+                </Box>
+            </Box>
+
+
+            {/* Tijd */}
+            <Box>
+                <Heading as="h3" mb={4}>
+                    Tijd
                 </Heading>
-                <Text>Datum </Text>
-                <Text>Tijd </Text>
-                <Text>Behandeling </Text>
-                <Text>Bij kapper </Text>
+                <Select
+                    icon={<MdArrowDropDown />}
+                    borderColor="black"
+                    colorScheme='teal'
+                    placeholder="Kies een tijdstip"
+                    variant="filled"
+                    mb={4}
+                    bg="rgba(255,255,255,1)"
+                >
+                    <option value="10u">10:00</option>
+                    <option value="11u">11:00</option>
+                    <option value="12u">12:00</option>
+                    <option value="13u">13:00</option>
+                    <option value="14u">14:00</option>
+                    <option value="15u">15:00</option>
+                    <option value="16u">16:00</option>
+                    <option value="17u">17:00</option>
+                </Select>
+            </Box>
 
-            </SimpleGrid>
-        </Container>
-    </Layout>
+
+            {/* Locatie */}
+            <Box>
+                <Heading as="h3" mb={4}>
+                    Locatie
+                </Heading>
+                <Select
+                    borderColor="black"
+                    colorScheme='teal'
+                    placeholder="Kies een locatie"
+                    variant="filled"
+                    mb={4}
+                    bg="rgba(255,255,255,1)"
+                >
+                    <option value="rotterdam">Rotterdam</option>
+                    <option value="amsterdam">Amsterdam</option>
+                    <option value="utrecht">Utrecht</option>
+                    <option value="denhaag">Den Haag</option>
+                </Select>
+            </Box>
+
+            {/* Kapper */}
+            <Box>
+                <Heading as="h3" mb={4}>
+                    Kapper
+                </Heading>
+                <Select
+                    icon={<MdArrowDropDown />}
+                    borderColor="black"
+                    colorScheme='teal'
+                    placeholder="Kies een kapper"
+                    variant="filled"
+                    mb={4}
+                    bg="rgba(255,255,255,1)"
+                >
+                    <option value="marjolein">Marjolein</option>
+                    <option value="martijn">Martijn</option>
+                    <option value="tina">Tina</option>
+                    <option value="martin">Martin</option>
+                </Select>
+            </Box>
+
+            {/* Persoonsgegevens */}
+            <Box>
+                <Heading as="h2" fontSize={20} mb={4}>
+                    Persoonsgegevens
+                </Heading>
+                <Box>
+                    <FormControl
+                        id="voornaam"
+                        isRequired>
+                        <FormLabel>Voornaam</FormLabel>
+                        <Input
+                            type="text"
+                            placeholder="Voornaam"
+                            borderColor="black"
+                            border="2px"
+                            bg="rgba(255,255,255,1)"
+                            textColor={"#000"}
+                        />
+                    </FormControl>
+                    <FormControl
+                        id="tussenvoegsel">
+                        <FormLabel>Tussenvoegsel</FormLabel>
+                        <Input
+                            type="text"
+                            placeholder="Tussenvoegsel"
+                            borderColor="black"
+                            border="2px"
+                            bg="rgba(255,255,255,1)"
+                        />
+                    </FormControl>
+                    <FormControl
+                        id="achternaam"
+                        isRequired>
+                        <FormLabel>Achternaam</FormLabel>
+                        <Input
+                            type="text"
+                            placeholder="Achternaam"
+                            borderColor="black"
+                            border="2px"
+                            bg="rgba(255,255,255,1)"
+                        />
+                    </FormControl>
+                    <FormControl
+                        id="email"
+                        isRequired>
+                        <FormLabel>Email</FormLabel>
+                        <Input
+                            type="email"
+                            placeholder="email@hotmail.com"
+                            borderColor="black"
+                            border="2px"
+                            bg="rgba(255,255,255,1)"
+                        />
+                    </FormControl>
+                    <FormControl
+                        id="telefoonnummer"
+                        isRequired>
+                        <FormLabel>Telefoonnummer</FormLabel>
+                        <Input
+                            type="text"
+                            placeholder="0611223344"
+                            borderColor="black"
+                            border="2px"
+                            bg="rgba(255,255,255,1)"
+                        />
+                    </FormControl>
+                </Box>
+                {/* Afspraak bevestigen */}
+                <Box mt={6}>
+                    <NextLink
+                        href="/" passHref>
+                        <Button
+                            border="2px solid #000"
+                            textColor="#000"
+                            bg="rgba(253,173,0,255)"
+                            size="lg"
+                            w="100%"
+                        >
+                            Afspraak bevestigen
+                        </Button>
+                    </NextLink>
+                </Box>
+            </Box>
+        </Box>
+    </Container>
 )
 
 export default Reserven

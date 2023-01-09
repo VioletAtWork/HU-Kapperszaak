@@ -6,12 +6,12 @@ import {BioSection, BioYear} from "../components/bio";
 
 const Overons = () => (
     <Layout title="Team">
-        <Heading as="h1" fontSize={30} mb={6} variant="section-title" color="lightgreen">
+        <Heading as="h1" fontSize={30} mb={6} variant="section-title">
             Ons team
         </Heading>
         <Layout variant="hidden">
             <Section delay={0.4} mb={5} title="Bio">
-                <Heading as="h2" fontSize={20} mb={4} variant="section-title" color="lightgreen">
+                <Heading as="h2" fontSize={20} mb={4} variant="section-title">
                     Tijdlijn
                 </Heading>
                 Kopje 1
@@ -40,7 +40,7 @@ const Overons = () => (
         <Layout variant="hidden">
             <SimpleGrid columns={[1, 1, 2]} gap={10}>
                 <Section>
-                    <Heading as="h2" fontSize={20} mb={4} variant="section-title" color="lightgreen">
+                    <Heading as="h2" fontSize={20} mb={4} variant="section-title">
                         Wie zijn wij?
                     </Heading>
                     <Text>Wij bestaan al 15 jaar! Met 1 salon in de mooiste stad van het land zijn wij super makkelijk.</Text>
@@ -52,7 +52,7 @@ const Overons = () => (
                 </Section>
                 <Section>
 
-                    <Heading as="h3" variant="section-title" color="lightgreen">
+                    <Heading as="h3" variant="section-title">
                         Onze kernwaarden
                     </Heading>
                     <Text>De formule van ons is gebaseerd op vier belangrijke pijlers:</Text>
