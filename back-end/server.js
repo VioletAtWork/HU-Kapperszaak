@@ -13,7 +13,7 @@ const saltRounds = 10;
 const db = createPool({
     host: "localhost",
     user: "root",
-    password: "123456789",
+    password: "password",
     database: "kapperszaakdb",
 });
 
