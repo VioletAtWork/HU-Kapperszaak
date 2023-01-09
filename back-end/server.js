@@ -49,7 +49,7 @@ register.post("/register", (req, res)=> {
         bcrypt.hash(usermiddlename, saltRounds, (err, middleNameHash) => {
                 if (err) {
                     console.log (err)
-                }
+            }
         
             bcrypt.hash(userlastname, saltRounds, (err, lastNameHash) => {
                 if (err) {
@@ -62,10 +62,10 @@ register.post("/register", (req, res)=> {
                     }
                 
 // DATA INSERTION INTO THE DATABASE
-                    const sqlInsert = "INSERT INTO userinformation (email, password, firstName, middleName, lastName) VALUES (?,?,?,?,?)"
+                    const sqlInsert = "INSERT INTO userinformation (email, password, firstName, middleName, lastName) VALUES (?,?,?,?,?)" // Iets gaat hierin fout
                         
                     db.query(sqlInsert, [useremail, passwordHash, firstNameHash, middleNameHash, lastNameHash], (err, result)=> {
-                        console.log(result);                   
+                        console.log(result)                   
                         });
                     });              
                 }); 
