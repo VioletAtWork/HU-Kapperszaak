@@ -14,7 +14,7 @@ import Axios from 'axios';
 
 const RegisterForm = () => {
 
-/*  CONST FUNCTIONS GRABBING ONchange VARIABLE FROM FIELDS */
+/*  CONST FOR INPUT GRABBING TO BACKEND */
 
     const [userfirstName, setUserFirstName] = useState("");
     const [usermiddleName, setUserMiddleName] = useState("");
@@ -22,9 +22,18 @@ const RegisterForm = () => {
     const [userEmail, setUserEmail] = useState("");
     const [userPassword, setUserPassword] = useState("");
 
-/* THIS CONST FUNCTION IS LINKED WITH THE REGISTATION BUTTON, INFORMATION IS STORED INTO AN OBJECT SO IT CAN BE PULLED INTO THE BACKEND */
+/* CONST FOR EMAIL VALIDATION */
 
-        const registrateUser = () => {
+    const [emailCheck, setEmailCheck] = useState("");
+    const [emailMessage, setEmailMessage] = useState("");
+
+/* FUNCTION THAT IS CALLED WHEN U CLICK ON REGISTRATION WITH FORMAT CHECK ON THE EMAIL-ADRESS */
+
+        const userRegistration = () => {
+            const regEx = /^[a-zA-Z0-9._%+-]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/g
+
+        if (regEx.test(emailCheck)){
+
             Axios.post("http://localhost:3001/register", {
                 userFirstName: userfirstName,
                 userMiddleName: usermiddleName,
@@ -34,8 +43,15 @@ const RegisterForm = () => {
             }).then(() => {
                 console.log("Succesfull");
             });
+        
+        } else if (!regEx.test(emailCheck) && emailCheck !== "") {
+                setEmailMessage ("Invalid Email"); // MESSAGE GOING BACK TO FE WHEN EMAIL FORMAT IS INCORRECT
+          
+            } else {
+                setEmailMessage ("");           
+            }
         };
-
+        
 /* CONTAINER OF FORM FIELDS AND REGISTER BUTTON */
 
         return (
@@ -59,7 +75,10 @@ const RegisterForm = () => {
                     <FormLabel>Email address</FormLabel>
                     <Input type="email" variant="loginform" onChange={(e) => {
                         setUserEmail(e.target.value);
+                        setEmailCheck(e.target.value);                        
                     } } />
+
+                    <h5>{emailMessage}</h5>
                    
                     <FormLabel>Wachtwoord</FormLabel>
                     <Input variant="loginform" onChange={(e) => {
@@ -69,12 +88,14 @@ const RegisterForm = () => {
                     <FormHelperText>We'll never share your details.</FormHelperText>
                 </FormControl>
 
-                <Button onClick={registrateUser}>Registreren</Button>
+                <Button onClick={() => {
+                    userRegistration ();
+                }}>Registreren</Button>
             </Container>
 
         );
-   }
-       
+    };
+     
 export default RegisterForm
 
 
