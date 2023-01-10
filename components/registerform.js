@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useForm } from 'react-hook-form'
 import {
     Flex,
     Box,
@@ -21,6 +22,7 @@ const RegisterForm = () => {
     const [userlastName, setUserLastName] = useState("");
     const [userEmail, setUserEmail] = useState("");
     const [userPassword, setUserPassword] = useState("");
+    const { reset } = useForm(); 
 
 /* THIS CONST FUNCTION IS LINKED WITH THE REGISTRATION BUTTON, INFORMATION IS STORED INTO AN OBJECT SO IT CAN BE PULLED INTO THE BACKEND */
 
@@ -33,11 +35,21 @@ const RegisterForm = () => {
                 userPassword: userPassword,
             }).then(() => {
                 console.log("Succesfull");
+                reset();
             });
         };
         
 /* CONTAINER OF FORM FIELDS AND REGISTER BUTTON */
+        
 
+      /* useEffect(() => {
+            if (!isAdding) {
+                formRef.current?.reset();
+            }
+
+
+        }, [isAdding]);*/
+        
         return (
             <Container>
                 <FormControl>
@@ -57,19 +69,24 @@ const RegisterForm = () => {
                     } } />
 
                     <FormLabel>Email address</FormLabel>
-                    <Input type="email" variant="loginform" onChange={(e) => {
+                    <input type="email" variant="loginform" onChange={(e) => {
                         setUserEmail(e.target.value);
                     } } />
                    
                     <FormLabel>Wachtwoord</FormLabel>
-                    <Input variant="loginform" onChange={(e) => {
+                    <input type="password" 
+                    variant="loginform" onChange={(e) => {
                         setUserPassword(e.target.value);
                     } } /> 
                     
                     <FormHelperText>We'll never share your details.</FormHelperText>
                 </FormControl>
+                
 
-                <Button onClick={registrateUser}>Registreren</Button>
+
+                <Button onClick=
+                   {registrateUser}
+                   >Registreren</Button>
             </Container>
 
         );

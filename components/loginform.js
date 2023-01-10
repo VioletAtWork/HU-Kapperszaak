@@ -50,12 +50,13 @@ const LoginForm = () => {
                 <FormLabel>
                     Wachtwoord
                 </FormLabel>
-                <Input variant="loginform" onChange={(e) => {
+                <Input type="password"
+                Input variant="loginform" 
+                onChange={(e) => {
                         setLoginPassword(e.target.value);
                     } } />
                 <FormHelperText>
-                    Wachtwo
-                    ord vergeten?
+                    Wachtwoord vergeten?
                 </FormHelperText>
                 
                 <h5>{loginstatus}</h5>
