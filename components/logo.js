@@ -22,13 +22,13 @@ const Logo = () => {
 
     return (
         <Link href="/" passHref>
-            <LogoBox
+            <Image src={haircutLogo} width={20} height={20} alt="logo" />
+            {/*<LogoBox
                 as="a"
                 href="/"
                 aria-label="HairLab logo"
                 title="HairLab logo"
             >
-                <Image src={haircutLogo} width={20} height={20} alt="logo" />
                 <Text
                     color={useColorModeValue('gray.800', 'whiteAlpha.900')}
                     fontFamily="M PLUS Rounded 1c"
@@ -37,7 +37,7 @@ const Logo = () => {
                 >
                     HairLab
                 </Text>
-            </LogoBox>
+            </LogoBox>*/}
         </Link>
     )
 }

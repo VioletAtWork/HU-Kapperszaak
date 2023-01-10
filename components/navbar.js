@@ -47,9 +47,79 @@ const Navbar = props => {
             {...props}
         >
             <Container as={Flex} maxW="container.xl" align="center" >
+
+                {/*<Box
+                    align="center"
+                    borderRadius="lg"
+                    mb={6}
+                    p={3}
+                    textAlign="center"
+                    display={{md: 'flex'}}>
+                    <Box flexGrow={1}>
+
+                        <NextLink href="/locaties" passHref>
+                            <Button colorScheme="red" variant="outline"
+                                    style={{borderTopRightRadius: 0, borderBottomRightRadius: 0}}
+                            >
+                                Locaties
+                            </Button>
+                        </NextLink>
+
+                        <NextLink href="/overons" passHref>
+                            <Button colorScheme="red" variant="outline"
+                                    style={{borderRadius: 0}}
+                            >
+                                Over ons</Button>
+                        </NextLink>
+
+                        <NextLink href="/reserveren" passHref>
+                            <Button colorScheme="red" variant="outline"
+                                    style={{borderRadius: 0}}
+                            >
+                                Reserveren
+                            </Button>
+                        </NextLink>
+
+                        <NextLink href="/inloggen" passHref>
+                            <Button colorScheme="red" variant="outline"
+                                    style={{borderRadius: 0}}
+                            >
+                                Inloggen
+                            </Button>
+                        </NextLink>
+
+                        <NextLink href="/producten" passHref>
+                            <Button colorScheme="red" variant="outline"
+                                    style={{borderRadius: 0}}
+                            >
+                                Producten
+                            </Button>
+                        </NextLink>
+
+                        <NextLink href="/druktePagina" passHref>
+                            <Button colorScheme="red" variant="outline"
+                                    style={{borderRadius: 0}}
+                            >
+                                Drukte
+                            </Button>
+                        </NextLink>
+
+                        <NextLink href="/admin" passHref>
+                            <Button colorScheme="red" variant="outline"
+                                    style={{borderTopLeftRadius: 0, borderBottomLeftRadius: 0}}
+                            >
+                                Admin
+                            </Button>
+                        </NextLink>
+                    </Box>
+                </Box>*/}
+
+
                 <Flex mr={4}>
                     <Logo />
                 </Flex>
+
+
                 <HStack h="100%" as="nav" align="center" ml={10}>
                     <NextLink
                         href="/reserveren"
