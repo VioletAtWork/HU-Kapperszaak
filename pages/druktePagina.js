@@ -12,9 +12,6 @@ const DruktePagina = () => (
 
             <SimpleGrid columns={[1, 1, 2]} gap={6}>
                 <Section>
-
-                    <Text>Stuk 1</Text>
-
                     <Drukte />
                 </Section>
             </SimpleGrid>
