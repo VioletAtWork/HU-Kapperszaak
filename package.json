@@ -25,12 +25,14 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "axios": "^1.2.1",
+    "body-parser": "^1.20.1",
     "framer-motion": "^7.6.15",
     "i": "^0.3.7",
-    "next": "^13.0.7",
+    "next": "^13.1.1",
     "parse": "^3.5.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "webpack": "^5.75.0"
   },
   "devDependencies": {
     "@chakra-ui/icons": "^2.0.13",

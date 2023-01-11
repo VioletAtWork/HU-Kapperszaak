@@ -26,29 +26,37 @@ const RegisterForm = () => {
 
     const [emailCheck, setEmailCheck] = useState("");
     const [emailMessage, setEmailMessage] = useState("");
+    const [emailAlreadyExist, setEmailAlreadyExist] = useState("");
+    const [registrationSucces, setRegistrationSucces] = useState("");
 
 /* FUNCTION THAT IS CALLED WHEN U CLICK ON REGISTRATION WITH FORMAT CHECK ON THE EMAIL-ADRESS */
 
         const userRegistration = () => {
-            const regEx = /^[a-zA-Z0-9._%+-]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/g
+            const regExP = /^[a-zA-Z0-9._%+-]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/g
 
-        if (regEx.test(emailCheck)){
+        if (regExP.test(emailCheck)) {
 
-            Axios.post("http://localhost:3001/register", {
+                Axios.post("http://localhost:3001/register", {
                 userFirstName: userfirstName,
                 userMiddleName: usermiddleName,
                 userLastName: userlastName,
                 userEmail: userEmail,
                 userPassword: userPassword,
-            }).then(() => {
-                console.log("Succesfull");
+            }).then((response) => {
+
+                if (response.data.registrationFailur) {
+                    setEmailAlreadyExist(response.data.registrationFailur) // MESSAGE DISPLAYED WHEN EMAIL ADRESS ALREADY EXISTS IN THE DATABASE
+                } else {
+                    setRegistrationSucces(response.data.registrationSuccesfull) // MESSAGE DISPLAYED WHEN DATABASE INSERTION HAS BEEN COMPLETED
+                }
             });
-        
-        } else if (!regEx.test(emailCheck) && emailCheck !== "") {
-                setEmailMessage ("Invalid Email"); // MESSAGE GOING BACK TO FE WHEN EMAIL FORMAT IS INCORRECT
+            
+
+        } else if (!regExP.test(emailCheck) && emailCheck !== "") {
+                setEmailMessage ("Invalid Email"); // MESSAGE DISPLAYED WHEN EMAIL FORMAT IS WRONG
           
             } else {
-                setEmailMessage ("");           
+                setEmailMessage ("This field is mandatory"); // MESSAGE DISPLAYED WHEN FIELD IS EMPTY      
             }
         };
         
@@ -78,8 +86,9 @@ const RegisterForm = () => {
                         setEmailCheck(e.target.value);                        
                     } } />
 
-                    <h5>{emailMessage}</h5>
-                   
+                    <p>{emailMessage}</p>
+                    <p>{emailAlreadyExist}</p>
+
                     <FormLabel>Wachtwoord</FormLabel>
                     <Input variant="loginform" onChange={(e) => {
                         setUserPassword(e.target.value);
@@ -91,6 +100,9 @@ const RegisterForm = () => {
                 <Button onClick={() => {
                     userRegistration ();
                 }}>Registreren</Button>
+
+                <p>{registrationSucces}</p>
+                
             </Container>
 
         );

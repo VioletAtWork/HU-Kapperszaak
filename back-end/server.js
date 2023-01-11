@@ -60,19 +60,34 @@ register.post("/register", (req, res)=> {
                     if (err) {
                         console.log (err)
                     }
-                
-// DATA INSERTION INTO THE DATABASE
-                    const sqlInsert = "INSERT INTO userinformation (email, password, firstName, middleName, lastName) VALUES (?,?,?,?,?)" // Iets gaat hierin fout
-                        
-                    db.query(sqlInsert, [useremail, passwordHash, firstNameHash, middleNameHash, lastNameHash], (err, result)=> {
-                        console.log(result)                   
+
+// CHECK IF EMAIL ADRESS ALREADY EXISTS IN DATABASE. 
+// IF TRUE RETURN MESSAGE THAT EMAIL ALREADY EXISTS
+// IF FALSE INSERT INTO THE DATABASE AND COMPLETE REGISTRATION
+
+    const userExist = "SELECT email FROM userinformation WHERE email = ?";
+    const sqlInsert = "INSERT INTO userinformation (email, password, firstName, middleName, lastName) VALUES (?,?,?,?,?)"
+
+        db.query(userExist, [useremail],
+            (err, result) => {
+                if (err) {
+                    console.log (err);
+                }   
+
+                if (result.length > 0) {
+                        res.send ({registrationFailur: "This email already exists" }) 
+                    } else {
+                        db.query(sqlInsert, [useremail, passwordHash, firstNameHash, middleNameHash, lastNameHash], (err, res)=> { 
                         });
-                    });              
-                }); 
+                        res.send({ registrationSuccesfull: "You have been registrated!"}) // SEND EMAIL TO THE EMAIL IN HERE??? //
+                        }
+                    });
+                });              
             }); 
         }); 
-    });
- 
+    }); 
+});
+
 
 /* Login --> */
 
