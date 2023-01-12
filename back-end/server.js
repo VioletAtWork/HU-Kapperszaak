@@ -11,11 +11,7 @@ const saltRounds = 10;
 
 const db = createPool({
     host: "localhost",
-<<<<<<< HEAD
     user: "root",
-=======
-    user: "sqluser", //DEFAULT = "ROOT"
->>>>>>> Development
     password: "password",
     database: "kapperszaakdb",
 });
@@ -36,7 +32,6 @@ register.use(cors());
 register.use(express.json())
 register.use(bodyParser.urlencoded({ extended: true }));
 
-<<<<<<< HEAD
 login.use(cors());
 login.use(express.json())
 login.use(bodyParser.urlencoded({ extended: true }));
@@ -44,8 +39,6 @@ login.use(bodyParser.urlencoded({ extended: true }));
 /* REGISTER --> VARIABLES PULLED FROM FRONTEND */
 /* REGISTER --> INSERT STATEMENT OF PARAMETER VARIABLES - SQL injection preventing - QUERY INSERT INTO DATABASE */
 
-=======
->>>>>>> Development
 register.post("/register", (req, res)=> {
     const userfirstname = req.body.userFirstName
     const usermiddlename = req.body.userMiddleName
@@ -70,13 +63,6 @@ register.post("/register", (req, res)=> {
                     console.log (err)
                 }
             
-<<<<<<< HEAD
-       db.query(sqlInsert, [useremail, passwordHash, userfirstname, usermiddlename, userlastname], (err, result)=> {
-        console.log(result);
-        });  
-    });
-});
-=======
                 bcrypt.hash(userfirstname, saltRounds, (err, firstNameHash) => {
                     if (err) {
                         console.log (err)
@@ -109,7 +95,6 @@ register.post("/register", (req, res)=> {
     }); 
 });
 
->>>>>>> Development
 
 /* Login --> */
 
@@ -133,19 +118,15 @@ login.post("/userlogin", (req, res)=> {
 // Comparison of the email input with the hashed password
 
             if (result.length > 0) {
-<<<<<<< HEAD
-                res.send(result);({ message:"Okay, let's go!"}); // Message that is send back to the frontend when inlog is correct
-=======
                 bcrypt.compare(loginpassword, result[0].password, (err, response) => { 
                         if (response) {
                             res.send({ conformation: "Succesvol ingelogt!"}); // Message send when login is succesfull
                         } else {
-                            res.send({ message: "Email of wachtwoord is incorrect!"}); //Message that is send back to the frontend when password is incorrect
+                            res.send({ message: "Email of wachtwoord is 6incorrect!"}); //Message that is send back to the frontend when password is incorrect
                         }
                     }
                 );
 
->>>>>>> Development
             } else {
                 res.send({ message: "Email of wachtwoord is incorrect!"}); //Message that is send back to the frontend when email is incorrect
             }
