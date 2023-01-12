@@ -1,9 +1,1 @@
-<<<<<<< HEAD
-self.__BUILD_MANIFEST = {__rewrites:{beforeFiles:[],afterFiles:[],fallback:[]},"/_error":["static\u002Fchunks\u002Fpages\u002F_error.js"],"/login":["static\u002Fchunks\u002Fpages\u002Flogin.js"],sortedPages:["\u002F_app","\u002F_error","\u002Flogin"]};self.__BUILD_MANIFEST_CB && self.__BUILD_MANIFEST_CB()
-=======
-<<<<<<< HEAD
-self.__BUILD_MANIFEST = {__rewrites:{beforeFiles:[],afterFiles:[],fallback:[]},"/_error":["static\u002Fchunks\u002Fpages\u002F_error.js"],"/druktePagina":["static\u002Fchunks\u002Fpages\u002FdruktePagina.js"],sortedPages:["\u002F_app","\u002F_error","\u002FdruktePagina"]};self.__BUILD_MANIFEST_CB && self.__BUILD_MANIFEST_CB()
-=======
-self.__BUILD_MANIFEST = {__rewrites:{beforeFiles:[],afterFiles:[],fallback:[]},"/404":["static\u002Fchunks\u002Fpages\u002F404.js"],"/_error":["static\u002Fchunks\u002Fpages\u002F_error.js"],"/login":["static\u002Fchunks\u002Fpages\u002Flogin.js"],sortedPages:["\u002F404","\u002F_app","\u002F_error","\u002Flogin"]};self.__BUILD_MANIFEST_CB && self.__BUILD_MANIFEST_CB()
->>>>>>> Development
->>>>>>> Development
+self.__BUILD_MANIFEST = {__rewrites:{beforeFiles:[],afterFiles:[],fallback:[]},"/":["static\u002Fchunks\u002Fpages\u002Findex.js"],"/_error":["static\u002Fchunks\u002Fpages\u002F_error.js"],"/druktePagina":["static\u002Fchunks\u002Fpages\u002FdruktePagina.js"],"/locaties":["static\u002Fchunks\u002Fpages\u002Flocaties.js"],"/login":["static\u002Fchunks\u002Fpages\u002Flogin.js"],"/overons":["static\u002Fchunks\u002Fpages\u002Foverons.js"],"/reserveren":["static\u002Fchunks\u002Fpages\u002Freserveren.js"],sortedPages:["\u002F","\u002F_app","\u002F_error","\u002FdruktePagina","\u002Flocaties","\u002Flogin","\u002Foverons","\u002Freserveren"]};self.__BUILD_MANIFEST_CB && self.__BUILD_MANIFEST_CB()

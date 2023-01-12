@@ -2,14 +2,10 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-<<<<<<< HEAD
-  "/login": "pages/login.js"
-=======
-<<<<<<< HEAD
-  "/druktePagina": "pages/druktePagina.js"
-=======
+  "/": "pages/index.js",
+  "/druktePagina": "pages/druktePagina.js",
+  "/locaties": "pages/locaties.js",
   "/login": "pages/login.js",
-  "/404": "pages/404.js"
->>>>>>> Development
->>>>>>> Development
+  "/overons": "pages/overons.js",
+  "/reserveren": "pages/reserveren.js"
 }
