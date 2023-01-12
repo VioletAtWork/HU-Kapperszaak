@@ -11,7 +11,11 @@ const saltRounds = 10;
 
 const db = createPool({
     host: "localhost",
+<<<<<<< HEAD
     user: "sqluser", //DEFAULT = "ROOT"
+=======
+    user: "root", //DEFAULT = "ROOT"
+>>>>>>> Development
     password: "password",
     database: "kapperszaakdb",
 });
@@ -60,6 +64,7 @@ register.post("/register", (req, res)=> {
                     if (err) {
                         console.log (err)
                     }
+<<<<<<< HEAD
 
 // CHECK IF EMAIL ADRESS ALREADY EXISTS IN DATABASE. 
 // IF TRUE RETURN MESSAGE THAT EMAIL ALREADY EXISTS
@@ -78,6 +83,14 @@ register.post("/register", (req, res)=> {
                         res.send ({registrationFailur: "This email already exists" }) 
                     } else {
                         db.query(sqlInsert, [useremail, passwordHash, firstNameHash, middleNameHash, lastNameHash], (err, res)=> { 
+=======
+                
+// DATA INSERTION INTO THE DATABASE
+                    const sqlInsert = "INSERT INTO userinformation (email, password, firstName, middleName, lastName) VALUES (?,?,?,?,?)"
+                        
+                    db.query(sqlInsert, [useremail, passwordHash, firstNameHash, middleNameHash, lastNameHash], (err, result)=> {
+                        console.log(err);                   
+>>>>>>> Development
                         });
                         res.send({ registrationSuccesfull: "You have been registrated!"}) // SEND EMAIL TO THE EMAIL IN HERE??? //
                         }

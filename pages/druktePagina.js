@@ -1,24 +1,25 @@
-import { Container, Heading, SimpleGrid, Divider } from '@chakra-ui/react'
+import {Container, Heading, SimpleGrid, Divider, Text} from '@chakra-ui/react'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
+import Drukte from "../components/drukte";
 
-const Ourteam = () => (
-    <Layout title="Team">
+const DruktePagina = () => (
+    <Layout title="Drukte">
         <Container>
             <Heading as="h3" fontSize={20} mb={4}>
-                Over ons
+                Drukte Page
             </Heading>
 
             <SimpleGrid columns={[1, 1, 2]} gap={6}>
                 <Section>
-                    <Divider my={5} />
-                </Section>
-                <Section>
-
+                    <Drukte />
                 </Section>
             </SimpleGrid>
+
+
         </Container>
     </Layout>
 )
 
-export default Ourteam
+export default DruktePagina
+

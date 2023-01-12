@@ -2,7 +2,7 @@ import { Container, Heading, SimpleGrid, Divider } from '@chakra-ui/react'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
 
-const Reserve = () => (
+const Reserven = () => (
     <Layout title="Reserveren">
         <Container>
             <Heading as="h3" fontSize={20} mb={4}>
@@ -13,8 +13,6 @@ const Reserve = () => (
                 <Section>
                     <Divider my={5} />
                 </Section>
-                <Section>
-                </Section>
             </SimpleGrid>
 
 
@@ -22,4 +20,4 @@ const Reserve = () => (
     </Layout>
 )
 
-export default Reserve
+export default Reserven
