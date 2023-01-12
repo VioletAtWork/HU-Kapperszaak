@@ -3,9 +3,5 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/druktePagina": "pages/druktePagina.js",
-  "/locaties": "pages/locaties.js",
-  "/login": "pages/login.js",
-  "/overons": "pages/overons.js",
-  "/reserveren": "pages/reserveren.js"
+  "/overons": "pages/overons.js"
 }
