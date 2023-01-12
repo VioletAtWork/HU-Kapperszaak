@@ -2,10 +2,5 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/overons": "pages/overons.js",
-  "/": "pages/index.js",
-  "/locaties": "pages/locaties.js",
-  "/login": "pages/login.js",
-  "/reserveren": "pages/reserveren.js",
-  "/druktePagina": "pages/druktePagina.js"
+  "/": "pages/index.js"
 }
