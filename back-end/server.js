@@ -67,7 +67,7 @@ login.post("/userlogin", (req, res)=> {
             }
 
             if (result.length > 0) {
-                res.send(result);({ message:"Okay, let's go!"}); // Mesage that is send back to the frontend when inlog is correct
+                res.send(result);({ message:"Okay, let's go!"}); // Message that is send back to the frontend when inlog is correct
             } else {
                 res.send({ message: "Email of wachtwoord is incorrect!"}); //Message that is send back to the frontend when inlog is incorrect
             }
