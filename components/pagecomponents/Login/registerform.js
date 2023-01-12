@@ -25,14 +25,14 @@ const RegisterForm = () => {
 /* THIS CONST FUNCTION IS LINKED WITH THE REGISTATION BUTTON, INFORMATION IS STORED INTO AN OBJECT SO IT CAN BE PULLED INTO THE BACKEND */
 
         const registrateUser = () => {
-            Axios.post("http://localhost:3002/api/insert", {
+            Axios.post("http://localhost:3001/register", {
                 userFirstName: userfirstName,
                 userMiddleName: usermiddleName,
                 userLastName: userlastName,
                 userEmail: userEmail,
                 userPassword: userPassword,
             }).then(() => {
-                alert("succesfull insert");
+                console.log("Succesfull");
             });
         };
 
