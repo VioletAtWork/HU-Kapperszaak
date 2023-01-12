@@ -80,17 +80,6 @@ const Navbar = props => {
                         Inloggen
                     </LinkItem>
 
-<<<<<<< HEAD
-                    <LinkItem href="/producten" path={path} >
-                        Producten
-                    </LinkItem>
-
-                    <LinkItem href="/admin" path={path} >
-                        Admin
-                    </LinkItem>
-=======
-
->>>>>>> Development
                 </Stack>
 
                 <HStack

@@ -29,13 +29,7 @@ const LoginForm = () => {
                 if (response.data.message) {
                     setLoginStatus(response.data.message) // Message when user inlog in incorrect
                 } else {
-<<<<<<< HEAD:components/loginform.js
-                    setLoginStatus(response.data[0].message)        // Message when user is correctly logged in
-                    // show Successfull logged in pop-up
-                    // dsd
-=======
                     setLoginStatus(response.data.conformation) // Message when user is correctly logged in
->>>>>>> Development:components/pagecomponents/Login/loginform.js
                 }
             });
         };

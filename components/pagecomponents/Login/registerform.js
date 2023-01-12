@@ -24,11 +24,7 @@ const RegisterForm = () => {
     const [userPassword, setUserPassword] = useState("");
     const { reset } = useForm(); 
 
-<<<<<<< HEAD:components/registerform.js
-/* THIS CONST FUNCTION IS LINKED WITH THE REGISTRATION BUTTON, INFORMATION IS STORED INTO AN OBJECT SO IT CAN BE PULLED INTO THE BACKEND */
-=======
 /* CONST FOR EMAIL VALIDATION */
->>>>>>> Development:components/pagecomponents/Login/registerform.js
 
     const [emailCheck, setEmailCheck] = useState("");
     const [emailMessage, setEmailMessage] = useState("");
@@ -48,12 +44,6 @@ const RegisterForm = () => {
                 userLastName: userlastName,
                 userEmail: userEmail,
                 userPassword: userPassword,
-<<<<<<< HEAD:components/registerform.js
-            }).then(() => {
-                console.log("Succesfull");
-                reset();
-            });
-=======
             }).then((response) => {
 
                 if (response.data.registrationFailur) {
@@ -70,7 +60,6 @@ const RegisterForm = () => {
             } else {
                 setEmailMessage ("This field is mandatory"); // MESSAGE DISPLAYED WHEN FIELD IS EMPTY      
             }
->>>>>>> Development:components/pagecomponents/Login/registerform.js
         };
         
 /* CONTAINER OF FORM FIELDS AND REGISTER BUTTON */
@@ -121,19 +110,12 @@ const RegisterForm = () => {
                 </FormControl>
                 
 
-<<<<<<< HEAD:components/registerform.js
-
-                <Button onClick=
-                   {registrateUser}
-                   >Registreren</Button>
-=======
                 <Button onClick={() => {
                     userRegistration ();
                 }}>Registreren</Button>
 
                 <p>{registrationSucces}</p>
                 
->>>>>>> Development:components/pagecomponents/Login/registerform.js
             </Container>
 
         );
@@ -142,8 +124,6 @@ const RegisterForm = () => {
 export default RegisterForm
 
 
-<<<<<<< HEAD:components/registerform.js
-=======
 /* REGISTERFORM MAAR MOET NOG GECLEARED WORDEN*/
 
 /*import React from 'react'
@@ -187,4 +167,3 @@ const RegisterForm = () => {
 }
 
 export default RegisterForm */
->>>>>>> Development:components/pagecomponents/Login/registerform.js
