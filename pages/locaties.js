@@ -1,36 +1,39 @@
 import { Container, Heading, SimpleGrid, Divider } from '@chakra-ui/react'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
-import { WorkGridItem } from '../components/griditem'
-
-import thumbnailRotterdam from '../public/images/locaties/thumbnailRotterdam.png'
-import thumbnailAmsterdam from '../public/images/locaties/thumbnailAmsterdam.png'
+import { LocatieGridItem } from '../components/griditem'
+import
+    thumbnailRotterdam from
+        '../public/images/locaties/thumbnailRotterdam.png'
+import
+    thumbnailAmsterdam from
+        '../public/images/locaties/thumbnailAmsterdam.png'
+import Drukte from "../components/drukte";
 
 const Locaties = () => (
     <Layout title="Locaties">
         <Container>
-            <Divider my={2} />
             <Heading as="h3" fontSize={20} mb={4}>
                 Locaties
             </Heading>
 
             <SimpleGrid columns={[1, 1, 2]} gap={6}>
                 <Section>
-                    <WorkGridItem
+                    <LocatieGridItem
                         id="rotterdam"
                         title="Rotterdam"
                         thumbnail={thumbnailRotterdam}>
                         Rotterdam info.
-                    </WorkGridItem>
+                    </LocatieGridItem>
                 </Section>
                 <Section>
-                    <WorkGridItem
+                    <LocatieGridItem
                         id="amsterdam"
                         title="Amsterdam"
                         thumbnail={thumbnailAmsterdam}
                     >
                         Amsterdam info
-                    </WorkGridItem>
+                    </LocatieGridItem>
                 </Section>
             </SimpleGrid>
 
