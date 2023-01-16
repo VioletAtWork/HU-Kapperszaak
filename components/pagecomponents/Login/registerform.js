@@ -73,26 +73,55 @@ const RegisterForm = () => {
 
         }, [isAdding]);*/
         
+
+        function resetForm(){
+            document.getElementById("registratieFormulier").value = "";
+        }
+
+        function resetForm1(){
+            document.getElementById("registratieFormulier1").value = "";
+        }
+
+        function resetForm2(){
+            document.getElementById("registratieFormulier2").value = "";
+        }
+
+        function resetForm3(){
+            document.getElementById("registratieFormulier3").value = "";
+        }
+
+        function resetForm4(){
+            document.getElementById("registratieFormulier4").value = "";
+        }
+
+
         return (
             <Container>
-                <FormControl>
+                <FormControl id="registratieFormulier">
                     <FormLabel>Voornaam</FormLabel>
                     <Input variant="loginform" onChange={(e) => {
                         setUserFirstName(e.target.value);
                     } } />
+                </FormControl>
 
-                    <FormLabel>Tussenvoegsel</FormLabel>
+                <FormControl id="registratieFormulier1">
+                    <FormLabel >Tussenvoegsel</FormLabel>
                     <Input variant="loginform" onChange={(e) => {
                         setUserMiddleName(e.target.value);
                     } } />
+                </FormControl>   
 
+                
+                <FormControl id="registratieFormulier2">
                     <FormLabel>Achternaam</FormLabel>
                     <Input variant="loginform" onChange={(e) => {
                         setUserLastName(e.target.value);
                     } } />
+                </FormControl>
 
+                <FormControl id="registratieFormulier3"> 
                     <FormLabel>Email address</FormLabel>
-                    <input type="email" variant="loginform" onChange={(e) => {
+                    <Input type="email" variant="loginform" onChange={(e) => {
                         setUserEmail(e.target.value);
                         setEmailCheck(e.target.value);                        
                     } } />
@@ -100,18 +129,24 @@ const RegisterForm = () => {
                     <p>{emailMessage}</p>
                     <p>{emailAlreadyExist}</p>
 
+                </FormControl>
+
+                <FormControl id="registratieFormulier4">
                     <FormLabel>Wachtwoord</FormLabel>
-                    <input type="password" 
+                    <Input type="password" 
                     variant="loginform" onChange={(e) => {
                         setUserPassword(e.target.value);
                     } } /> 
-                    
-                    <FormHelperText>We'll never share your details.</FormHelperText>
+                
+
+                <FormHelperText>
+                    We'll never share your details.
+                </FormHelperText>
                 </FormControl>
                 
 
-                <Button onClick={() => {
-                    userRegistration ();
+                <Button onClick={() => {resetForm(); resetForm1(); resetForm2(); resetForm3(); resetForm4(); 
+                    userRegistration(); 
                 }}>Registreren</Button>
 
                 <p>{registrationSucces}</p>
