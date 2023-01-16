@@ -2,10 +2,10 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-<<<<<<< HEAD
   "/": "pages/index.js",
-  "/404": "pages/404.js"
-=======
-  "/": "pages/index.js"
->>>>>>> Development
+  "/admin": "pages/admin.js",
+  "/404": "pages/404.js",
+  "/login": "pages/login.js",
+  "/overons": "pages/overons.js",
+  "/locaties": "pages/locaties.js"
 }
