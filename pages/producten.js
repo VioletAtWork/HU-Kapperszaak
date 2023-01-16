@@ -87,20 +87,6 @@ const Producten = () => (
                     />
                 </Section>
             </SimpleGrid>
-
-            <Section delay={0.2}>
-                <Divider my={6} />
-                <Heading as="h3" fontSize={20} mb={4}>
-                    Need a fresh cut?
-                </Heading>
-                <Box align="center" my={4}>
-                    <NextLink href="/reserve">
-                        <Button rightIcon={<ChevronRightIcon />} colorScheme="teal" variant="outline">
-                            Book Now
-                        </Button>
-                    </NextLink>
-                </Box>
-            </Section>
         </Container>
     </Layout>
 )

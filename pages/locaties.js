@@ -8,11 +8,10 @@ import
 import
     thumbnailAmsterdam from
         '../public/images/locaties/thumbnailAmsterdam.png'
-import Drukte from "../components/drukte";
 
 const Locaties = () => (
     <Layout title="Locaties">
-        <Container>
+        <Container my={2}>
             <Heading as="h3" fontSize={20} mb={4}>
                 Locaties
             </Heading>
