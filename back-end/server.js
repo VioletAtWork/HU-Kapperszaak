@@ -86,7 +86,7 @@ register.post("/register", (req, res)=> {
                     } else {
                         db.query(sqlInsert, [useremail, passwordHash, firstNameHash, middleNameHash, lastNameHash], (err, res)=> { 
                         });
-                        res.send({ registrationSuccesfull: "You have been registrated!"}) // SEND EMAIL TO THE EMAIL IN HERE??? //
+                        res.send({ registrationSuccesfull: "You have been registered!"}) // SEND EMAIL TO THE EMAIL IN HERE??? //
                         }
                     });
                 });              

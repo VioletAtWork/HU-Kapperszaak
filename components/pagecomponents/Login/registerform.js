@@ -146,7 +146,12 @@ const RegisterForm = () => {
                 
 
                 <Button onClick={() => {resetForm(); resetForm1(); resetForm2(); resetForm3(); resetForm4(); 
-                    userRegistration(); 
+                
+                userRegistration();
+                
+                // wait time here
+
+                document.location.href="/"
                 }}>Registreren</Button>
 
                 <p>{registrationSucces}</p>
