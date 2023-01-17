@@ -3,6 +3,9 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/404": "pages/404.js",
+  "/reserveren": "pages/reserveren.js",
+  "/inloggen": "pages/inloggen.js",
   "/": "pages/index.js",
-  "/admin": "pages/admin.js"
+  "/overons": "pages/overons.js",
+  "/locaties": "pages/locaties.js"
 }
