@@ -56,6 +56,7 @@ const Navbar = props => {
                     textAlign="center"
                     display={{md: 'flex'}}>
                     <Box flexGrow={1}>
+
                         <NextLink href="/locaties" passHref>
                             <Button colorScheme="red" variant="outline"
                                     style={{borderTopRightRadius: 0, borderBottomRightRadius: 0}}
@@ -63,12 +64,14 @@ const Navbar = props => {
                                 Locaties
                             </Button>
                         </NextLink>
+
                         <NextLink href="/overons" passHref>
                             <Button colorScheme="red" variant="outline"
                                     style={{borderRadius: 0}}
                             >
                                 Over ons</Button>
                         </NextLink>
+
                         <NextLink href="/reserveren" passHref>
                             <Button colorScheme="red" variant="outline"
                                     style={{borderRadius: 0}}
@@ -76,6 +79,7 @@ const Navbar = props => {
                                 Reserveren
                             </Button>
                         </NextLink>
+
                         <NextLink href="/inloggen" passHref>
                             <Button colorScheme="red" variant="outline"
                                     style={{borderRadius: 0}}
@@ -83,6 +87,7 @@ const Navbar = props => {
                                 Inloggen
                             </Button>
                         </NextLink>
+
                         <NextLink href="/producten" passHref>
                             <Button colorScheme="red" variant="outline"
                                     style={{borderRadius: 0}}
@@ -90,6 +95,7 @@ const Navbar = props => {
                                 Producten
                             </Button>
                         </NextLink>
+
                         <NextLink href="/druktePagina" passHref>
                             <Button colorScheme="red" variant="outline"
                                     style={{borderRadius: 0}}
@@ -97,6 +103,7 @@ const Navbar = props => {
                                 Drukte
                             </Button>
                         </NextLink>
+
                         <NextLink href="/admin" passHref>
                             <Button colorScheme="red" variant="outline"
                                     style={{borderTopLeftRadius: 0, borderBottomLeftRadius: 0}}
