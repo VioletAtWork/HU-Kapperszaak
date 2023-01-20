@@ -1,4 +1,4 @@
-import {Container, SimpleGrid, Divider, Heading} from '@chakra-ui/react'
+import {SimpleGrid, Divider, Heading} from '@chakra-ui/react'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import RegisterForm from "../components/pagecomponents/Login/registerform";
