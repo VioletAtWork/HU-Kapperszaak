@@ -3,7 +3,7 @@ import React from 'react';
 import { format } from 'date-fns';
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
-import {Box, Text} from "@chakra-ui/react";
+import {Box} from "@chakra-ui/react";
 
 export default function KapperDatePicker() {
     const [selected, setSelected] = React.useState(new Date());
