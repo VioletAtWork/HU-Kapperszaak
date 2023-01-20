@@ -2,8 +2,7 @@ import {Box, Heading, Text, useColorModeValue} from "@chakra-ui/react";
 
 const Page = () => {
     return (
-        <Box
-        >
+        <Box>
             <Box className="hero-title"
                  p={10}
             >
