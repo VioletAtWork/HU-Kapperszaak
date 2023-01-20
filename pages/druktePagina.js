@@ -1,4 +1,4 @@
-import {Container, Heading, SimpleGrid, Divider, Text} from '@chakra-ui/react'
+import {Container, Heading, SimpleGrid} from '@chakra-ui/react'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import Drukte from "../components/drukte";
@@ -12,9 +12,6 @@ const DruktePagina = () => (
 
             <SimpleGrid columns={[1, 1, 2]} gap={6}>
                 <Section>
-
-                    <Text>Stuk 1</Text>
-
                     <Drukte />
                 </Section>
             </SimpleGrid>
@@ -25,3 +22,4 @@ const DruktePagina = () => (
 )
 
 export default DruktePagina
+

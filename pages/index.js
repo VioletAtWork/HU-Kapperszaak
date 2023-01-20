@@ -5,18 +5,12 @@ import NextLink from "next/link";
 
 const Page = () => {
     return (
-        <Box
-        >
-            <Box className="hero-title"
-                 p={10}
-            >
-                <Heading
-                    as="h1"
-                    color={useColorModeValue('black', 'whiteAlpha.950')}
-                    variant="page-title"
-                    fontSize={64}
-                    mb={4}
-                >
+        <Box>
+            <Box className="hero-title" p={10}>
+                <Heading as="h1" color={useColorModeValue('black',
+                    'whiteAlpha.950')} variant="page-title" fontSize={64}
+                         mb={4
+                }>
                     HairLab
                 </Heading>
             </Box>
