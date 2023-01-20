@@ -2,14 +2,14 @@
   "name": "hu-kapperszaak",
   "version": "1.0.0",
   "description": "one-direction's website",
-  "main": "server.js",
+  "main": "back-end/server.js",
   "scripts": {
     "dev": "next dev -H 0.0.0.0",
     "build": "next build",
     "prettier": "prettier -write .",
     "lint": "next lint",
-    "start": "node server.js",
-    "devStart": "node_modules/.bin/nodemon server.js",
+    "start": "node back-end/server.js",
+    "devStart": "node_modules/.bin/nodemon back-end/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
