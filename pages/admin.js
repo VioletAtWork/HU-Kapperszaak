@@ -1,6 +1,5 @@
-import {Box, Button, Container, Heading, SimpleGrid, Stack, Text, useColorModeValue} from "@chakra-ui/react";
+import {Box, Button, Heading, SimpleGrid, Stack, Text, useColorModeValue} from "@chakra-ui/react";
 import Layout from "../components/layouts/article";
-import Section from "../components/section";
 
 const Admin = () => (
     <Layout title="Admin">

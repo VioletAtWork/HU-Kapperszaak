@@ -1,9 +1,6 @@
 node_modules
 *.pack
 .next/cache/webpack/server-development/9.pack
-*.pack
-*.pack
-*.pack
 .next/trace
 .next/static/webpack/webpack.f76f9056d868f55a.hot-update.js
 .next/static/webpack/webpack.f02d9d46fb6129b4.hot-update.js
@@ -56,7 +53,6 @@ node_modules
 .next/fallback-build-manifest.json
 .next/cache/webpack/server-development/index.pack.old
 .next/cache/webpack/server-development/index.pack
-.next/cache/webpack/server-development/9.pack
 .next/cache/webpack/server-development/8.pack
 .next/cache/webpack/server-development/6.pack
 .next/cache/webpack/server-development/5.pack
@@ -76,9 +72,6 @@ node_modules
 .next/cache/images/7mO6qj3NPHsuw1JjPofHO+LIqIRW8LRirOU4TarjQ-M=/60.1671103004444.rhwM7DfE1yCqx8vwictMdO7+Bigo604OjxVEhzHHnQg=.webp
 .next/cache/images/7mO6qj3NPHsuw1JjPofHO+LIqIRW8LRirOU4TarjQ-M=/60.1670865841407.rhwM7DfE1yCqx8vwictMdO7+Bigo604OjxVEhzHHnQg=.webp
 .next/build-manifest.json
-*.pack
-*.pack
-*.pack
 .next
 *.next
 .next/*
