@@ -1,9 +1,7 @@
 import Head from 'next/head'
 import NavBar from '../navbar'
-import {Box, Container, useColorModeValue} from '@chakra-ui/react'
+import {Box, Container} from '@chakra-ui/react'
 import Footer from '../footer'
-import backgroundImage from '/public/images/background.png'
-
 
 const Main = ({ children, router }) => {
     return (
