@@ -12,7 +12,7 @@ import NextLink from "next/link";
 import Image from "next/image";
 import thumbnailKapper from "../public/images/haircut-dark.png";
 import { MdArrowDropDown } from "react-icons/md";
-import KapperDatePicker from "../components/kapperDatePicker";
+import KapperDatePicker from "../components/Reserveren/kapperDatePicker";
 
 export const Kapper = ({ naamKapper, children }) => (
     <Box w="100%" textAlign="center">

@@ -46,14 +46,14 @@ const Navbar = props => {
                 >
                     <HStack
                     >
-                        <NextLink href="/inloggen" passHref>
+                        <NextLink href="/login" passHref>
                             <Button
                                 bg="transparent"
                             >
                                 Inloggen
                             </Button>
                         </NextLink>
-                        <NextLink href="/inloggen" passHref>
+                        <NextLink href="/login" passHref>
                             <Button
                                 bg="transparent"
                             >
