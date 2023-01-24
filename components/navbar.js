@@ -53,11 +53,20 @@ const Navbar = props => {
                                 Inloggen
                             </Button>
                         </NextLink>
+
                         <NextLink href="/login" passHref>
                             <Button
                                 bg="transparent"
                             >
                                 Registreren
+                            </Button>
+                        </NextLink>
+
+                        <NextLink href="/popup2" passHref>
+                            <Button
+                                bg="transparent"
+                            >
+                                Popup example
                             </Button>
                         </NextLink>
 
