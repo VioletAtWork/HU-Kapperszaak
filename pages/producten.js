@@ -16,11 +16,8 @@ import {
 import Layout from "../components/layouts/article"
 import {Product, ProductCard} from "../components/pagecomponents/Producten/product"
 
-import thumbnailProduct1Placeholder from "../public/images/producten/thumbnailProduct1Placeholder.png";
-import thumbnailProduct2Placeholder from "../public/images/producten/thumbnailProduct2Placeholder.png";
 import NextLink from "next/link";
-import {ChevronRightIcon, StarIcon} from "@chakra-ui/icons";
-import styled from "@emotion/styled";
+import {ChevronRightIcon,} from "@chakra-ui/icons";
 
 const products = [
     {
