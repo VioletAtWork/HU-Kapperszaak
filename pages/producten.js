@@ -16,8 +16,11 @@ import {
 import Layout from "../components/layouts/article"
 import {Product, ProductCard} from "../components/pagecomponents/Producten/product"
 
+import thumbnailProduct1Placeholder from "../public/images/producten/thumbnailProduct1Placeholder.png";
+import thumbnailProduct2Placeholder from "../public/images/producten/thumbnailProduct2Placeholder.png";
 import NextLink from "next/link";
-import {ChevronRightIcon,} from "@chakra-ui/icons";
+import {ChevronRightIcon, StarIcon} from "@chakra-ui/icons";
+import styled from "@emotion/styled";
 
 const products = [
     {
@@ -84,6 +87,20 @@ const Producten = () => (
                     />
                 </Section>
             </SimpleGrid>
+
+            <Section delay={0.2}>
+                <Divider my={6} />
+                <Heading as="h3" fontSize={20} mb={4}>
+                    Need a fresh cut?
+                </Heading>
+                <Box align="center" my={4}>
+                    <NextLink href="/reserve">
+                        <Button rightIcon={<ChevronRightIcon />} colorScheme="teal" variant="outline">
+                            Book Now
+                        </Button>
+                    </NextLink>
+                </Box>
+            </Section>
         </Container>
     </Layout>
 )

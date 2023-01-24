@@ -1,8 +1,10 @@
 import {
     Container,
     Badge,
+    Link,
     List,
     ListItem,
+    AspectRatio
 } from '@chakra-ui/react'
 import { Title, Meta } from '../../components/locatie'
 import P from '../../components/paragraph'

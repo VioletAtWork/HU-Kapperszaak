@@ -1,4 +1,4 @@
-import { Container, Heading, SimpleGrid} from '@chakra-ui/react'
+import { Container, Heading, SimpleGrid, Divider } from '@chakra-ui/react'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import { LocatieGridItem } from '../components/griditem'
@@ -8,10 +8,11 @@ import
 import
     thumbnailAmsterdam from
         '../public/images/locaties/thumbnailAmsterdam.png'
+import Drukte from "../components/drukte";
 
 const Locaties = () => (
     <Layout title="Locaties">
-        <Container my={2}>
+        <Container>
             <Heading as="h3" fontSize={20} mb={4}>
                 Locaties
             </Heading>
@@ -21,18 +22,30 @@ const Locaties = () => (
                     <LocatieGridItem
                         id="rotterdam"
                         title="Rotterdam"
-                        thumbnail={thumbnailRotterdam}
-                        children=""
-                    />
+                        thumbnail={thumbnailRotterdam}>
+                        Rotterdam info.
+                    </LocatieGridItem>
                 </Section>
                 <Section>
                     <LocatieGridItem
                         id="amsterdam"
                         title="Amsterdam"
                         thumbnail={thumbnailAmsterdam}
-                    />
+                    >
+                        Amsterdam info
+                    </LocatieGridItem>
                 </Section>
             </SimpleGrid>
+
+            <Section delay={0.2}>
+                <Divider my={6} />
+
+                <Heading as="h3" fontSize={20} mb={4}>
+                    Team
+                </Heading>
+            </Section>
+
+
         </Container>
     </Layout>
 )

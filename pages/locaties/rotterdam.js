@@ -6,7 +6,8 @@ import {
     ListItem,
     AspectRatio
 } from '@chakra-ui/react'
-import { Title, Meta } from '../../components/locatie'
+import { ExternalLinkIcon } from '@chakra-ui/icons'
+import { Title, LocatieImage, Meta } from '../../components/locatie'
 import P from '../../components/paragraph'
 import Layout from '../../components/layouts/article'
 

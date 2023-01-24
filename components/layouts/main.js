@@ -1,21 +1,30 @@
 import Head from 'next/head'
 import NavBar from '../navbar'
-import {Container} from '@chakra-ui/react'
+import { Box, Container } from '@chakra-ui/react'
 import Footer from '../footer'
+
 
 const Main = ({ children, router }) => {
     return (
-        <>
+        <Box as="main" pb={8}>
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <title>Utrecht's HairLab | Premium Haircuts, Microblading and Braiding</title>
+                <title>Kapperszaak HairLab - Homepage</title>
             </Head>
-            <NavBar path={router.asPath}/>
-            <Container/* !!! website max width hier instellen, bijv maxW="container.xl" of maxW="100%" voor hele breedte */ maxW="container.md">
+
+            <NavBar
+                path={router.asPath}
+            />
+
+            <Container
+                maxW="container.md" pt={14}
+            >
                 {children}
+
                 <Footer />
+
             </Container>
-        </>
+        </Box>
     )
 }
 

@@ -12,9 +12,11 @@ const Product = () => (
     <Layout title="Product1">
         <Container>
             <Divider my={5} />
+
             <ProductTitle>
                 Uppercut Deluxe Pomade <Badge>bijna uitverkocht!</Badge>
             </ProductTitle>
+
             <P>
                 Beschrijving over dit product. lorem ipsum, bekijk je reservering op de pagina, page. Zie onderstaande.
             </P>

@@ -1,9 +1,12 @@
-import React, { useState} from 'react'
-import { useForm } from 'react-hook-form'
+import React, { useState, useEffect } from 'react'
 import {
+    Flex,
+    Box,
+    Heading,
     FormControl,
     FormLabel,
     FormHelperText,
+    FormErrorMessage,
     Input,
     Button, Container
 } from '@chakra-ui/react';
@@ -18,7 +21,6 @@ const RegisterForm = () => {
     const [userlastName, setUserLastName] = useState("");
     const [userEmail, setUserEmail] = useState("");
     const [userPassword, setUserPassword] = useState("");
-    const { reset } = useForm(); 
 
 /* CONST FOR EMAIL VALIDATION */
 
@@ -59,16 +61,7 @@ const RegisterForm = () => {
         };
         
 /* CONTAINER OF FORM FIELDS AND REGISTER BUTTON */
-        
 
-      /* useEffect(() => {
-            if (!isAdding) {
-                formRef.current?.reset();
-            }
-
-
-        }, [isAdding]);*/
-        
         return (
             <Container>
                 <FormControl>
@@ -88,7 +81,7 @@ const RegisterForm = () => {
                     } } />
 
                     <FormLabel>Email address</FormLabel>
-                    <input type="email" variant="loginform" onChange={(e) => {
+                    <Input type="email" variant="loginform" onChange={(e) => {
                         setUserEmail(e.target.value);
                         setEmailCheck(e.target.value);                        
                     } } />
@@ -97,14 +90,12 @@ const RegisterForm = () => {
                     <p>{emailAlreadyExist}</p>
 
                     <FormLabel>Wachtwoord</FormLabel>
-                    <input type="password" 
-                    variant="loginform" onChange={(e) => {
+                    <Input variant="loginform" onChange={(e) => {
                         setUserPassword(e.target.value);
                     } } /> 
                     
                     <FormHelperText>We'll never share your details.</FormHelperText>
                 </FormControl>
-                
 
                 <Button onClick={() => {
                     userRegistration ();

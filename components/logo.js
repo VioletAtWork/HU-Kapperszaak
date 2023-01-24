@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import {Box, Text, useColorModeValue} from '@chakra-ui/react'
+import { Text, useColorModeValue } from '@chakra-ui/react'
 import styled from '@emotion/styled'
 
 const LogoBox = styled.span`
@@ -21,14 +21,9 @@ const Logo = () => {
     const haircutLogo = `/images/haircut${useColorModeValue('', '-dark')}.png`
 
     return (
-        <Link href="/" passHref>
-            <Image src={haircutLogo} width={20} height={20} alt="logo" />
-            {/*<LogoBox
-                as="a"
-                href="/"
-                aria-label="HairLab logo"
-                title="HairLab logo"
-            >
+        <Link href="/">
+            <LogoBox>
+                <Image src={haircutLogo} width={20} height={20} alt="logo" />
                 <Text
                     color={useColorModeValue('gray.800', 'whiteAlpha.900')}
                     fontFamily="M PLUS Rounded 1c"
@@ -37,7 +32,8 @@ const Logo = () => {
                 >
                     HairLab
                 </Text>
-            </LogoBox>*/}
+
+            </LogoBox>
         </Link>
     )
 }
