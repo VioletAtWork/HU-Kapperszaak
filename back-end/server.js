@@ -11,8 +11,8 @@ const saltRounds = 10;
 
 const db = createPool({
     host: "localhost",
-    user: "sqluser", //DEFAULT = "ROOT"
-    password: "password",
+    user: "root", //DEFAULT = "ROOT"
+    password: "123456789",
     database: "kapperszaakdb",
 });
 
@@ -75,11 +75,11 @@ register.post("/register", (req, res)=> {
                 }   
 
                 if (result.length > 0) {
-                        res.send ({registrationFailur: "This email already exists" }) 
+                        res.send ({registrationFailur: "Deze email bestaat al" }) 
                     } else {
                         db.query(sqlInsert, [useremail, passwordHash, firstNameHash, middleNameHash, lastNameHash], (err, res)=> { 
                         });
-                        res.send({ registrationSuccesfull: "You have been registrated!"}) // SEND EMAIL TO THE EMAIL IN HERE??? //
+                        res.send({ registrationSuccesfull: "Je bent geregistreerd!"}) // SEND EMAIL TO THE EMAIL IN HERE??? //
                         }
                     });
                 });              
@@ -115,7 +115,7 @@ login.post("/userlogin", (req, res)=> {
                         if (response) {
                             res.send({ conformation: "Succesvol ingelogt!"}); // Message send when login is succesfull
                         } else {
-                            res.send({ message: "Email of wachtwoord is incorrect!"}); //Message that is send back to the frontend when password is incorrect
+                            res.send({ message: "Email of wachtwoord is incorrect"}); //Message that is send back to the frontend when password is incorrect
                         }
                     }
                 );

@@ -49,10 +49,10 @@ const RegisterForm = () => {
             
 
         } else if (!regExP.test(emailCheck) && emailCheck !== "") {
-                setEmailMessage ("Invalid Email"); // MESSAGE DISPLAYED WHEN EMAIL FORMAT IS WRONG
+                setEmailMessage ("Voer een bestaande email in"); // MESSAGE DISPLAYED WHEN EMAIL FORMAT IS WRONG
           
             } else {
-                setEmailMessage ("This field is mandatory"); // MESSAGE DISPLAYED WHEN FIELD IS EMPTY      
+                setEmailMessage ("Dit veld is verplict"); // MESSAGE DISPLAYED WHEN FIELD IS EMPTY      
             }
         };
         
