@@ -62,13 +62,6 @@ const Navbar = props => {
                             </Button>
                         </NextLink>
 
-                        <NextLink href="/popup2" passHref>
-                            <Button
-                                bg="transparent"
-                            >
-                                Popup example
-                            </Button>
-                        </NextLink>
 
                         <ThemeToggleButton />
                     </HStack>
