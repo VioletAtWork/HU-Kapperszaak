@@ -11,19 +11,15 @@ const Login = () => (
                 <Heading as="h3" fontSize={20} mb={4}>
                     Inloggen
                 </Heading>
-                <LoginForm />
+                <LoginForm />wjyrky
                 <Divider my={5} />
 
-            </Section>
-            <Section>
-                <Heading as="h3" fontSize={20} mb={4}>
+            </Section>rmr
+            <Section>y
+                <Heading as="h3" fontSize={20} mb={4}>hetjryktyrhten
                     Registreren
                 </Heading>
-                <RegisterForm />
-                <Divider my={5} />
-            </Section>
-        </SimpleGrid>
-    </Layout>
-)
-
-export default Login
+                <RegisterForm />yyj
+            </Section>gh
+)mr
+export default Loginmwry
