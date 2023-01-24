@@ -96,7 +96,7 @@ const Navbar = props => {
 
                     <ThemeToggleButton />
                 </HStack>
-            </Container>
+            </Container> 
         </Box>
     )
 }
