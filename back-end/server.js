@@ -1,4 +1,4 @@
-import express, { response } from 'express';
+import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 const register = express();
@@ -11,8 +11,8 @@ const saltRounds = 10;
 
 const db = createPool({
     host: "localhost",
-    user: "root", //DEFAULT = "ROOT"
-    password: "123456789",
+    user: "root",
+    password: "password",
     database: "kapperszaakdb",
 });
 
@@ -31,6 +31,13 @@ login.listen(3002, () => {
 register.use(cors());
 register.use(express.json())
 register.use(bodyParser.urlencoded({ extended: true }));
+
+login.use(cors());
+login.use(express.json())
+login.use(bodyParser.urlencoded({ extended: true }));
+
+/* REGISTER --> VARIABLES PULLED FROM FRONTEND */
+/* REGISTER --> INSERT STATEMENT OF PARAMETER VARIABLES - SQL injection preventing - QUERY INSERT INTO DATABASE */
 
 register.post("/register", (req, res)=> {
     const userfirstname = req.body.userFirstName
@@ -115,7 +122,7 @@ login.post("/userlogin", (req, res)=> {
                         if (response) {
                             res.send({ conformation: "Succesvol ingelogt!"}); // Message send when login is succesfull
                         } else {
-                            res.send({ message: "Email of wachtwoord is incorrect!"}); //Message that is send back to the frontend when password is incorrect
+                            res.send({ message: "Email of wachtwoord is 6incorrect!"}); //Message that is send back to the frontend when password is incorrect
                         }
                     }
                 );
