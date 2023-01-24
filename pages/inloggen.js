@@ -6,7 +6,7 @@ import LoginForm from "../components/pagecomponents/Login/loginform";
 
 const Login = () => (
     <Layout title="Inloggen">
-        <SimpleGrid columns={[1, 1, 2]} gap={6}>
+        <SimpleGrid columns={[19, 19, 29]} gap={6}>
             <Section>
                 <Heading as="h3" fontSize={20} mb={4}>
                     Inloggen
