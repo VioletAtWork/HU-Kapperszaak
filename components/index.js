@@ -34,7 +34,7 @@ const Page = () => {
                 <Box align="center" my={4}>
                     <NextLink href="/locaties">
                         <Button rightIcon={<ChevronRightIcon />} colorScheme="teal" variant="outline">
-                            Locaties
+                            Locatiess
                         </Button>
                     </NextLink>
                 </Box>
