@@ -30,20 +30,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/locaties": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/locaties.js"
-    ],
     "/login": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/login.js"
     ],
-    "/overons": [
+    "/reserveren": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/overons.js"
+      "static/chunks/pages/reserveren.js"
     ]
   },
   "ampFirstPages": []
