@@ -1,5 +1,4 @@
-import React, { useState} from 'react'
-import { useForm } from 'react-hook-form'
+import React, { useState } from 'react'
 import {
     FormControl,
     FormLabel,
@@ -18,7 +17,6 @@ const RegisterForm = () => {
     const [userlastName, setUserLastName] = useState("");
     const [userEmail, setUserEmail] = useState("");
     const [userPassword, setUserPassword] = useState("");
-    const { reset } = useForm(); 
 
 /* CONST FOR EMAIL VALIDATION */
 
@@ -51,24 +49,15 @@ const RegisterForm = () => {
             
 
         } else if (!regExP.test(emailCheck) && emailCheck !== "") {
-                setEmailMessage ("Invalid Email"); // MESSAGE DISPLAYED WHEN EMAIL FORMAT IS WRONG
+                setEmailMessage ("Voer een bestaande email in"); // MESSAGE DISPLAYED WHEN EMAIL FORMAT IS WRONG
           
             } else {
-                setEmailMessage ("This field is mandatory"); // MESSAGE DISPLAYED WHEN FIELD IS EMPTY      
+                setEmailMessage ("Dit veld is verplict"); // MESSAGE DISPLAYED WHEN FIELD IS EMPTY      
             }
         };
         
 /* CONTAINER OF FORM FIELDS AND REGISTER BUTTON */
-        
 
-      /* useEffect(() => {
-            if (!isAdding) {
-                formRef.current?.reset();
-            }
-
-
-        }, [isAdding]);*/
-        
         return (
             <Container>
                 <FormControl>
@@ -88,7 +77,7 @@ const RegisterForm = () => {
                     } } />
 
                     <FormLabel>Email address</FormLabel>
-                    <input type="email" variant="loginform" onChange={(e) => {
+                    <Input type="email" variant="loginform" onChange={(e) => {
                         setUserEmail(e.target.value);
                         setEmailCheck(e.target.value);                        
                     } } />
@@ -97,14 +86,12 @@ const RegisterForm = () => {
                     <p>{emailAlreadyExist}</p>
 
                     <FormLabel>Wachtwoord</FormLabel>
-                    <input type="password" 
-                    variant="loginform" onChange={(e) => {
+                    <Input variant="loginform" onChange={(e) => {
                         setUserPassword(e.target.value);
                     } } /> 
                     
                     <FormHelperText>We'll never share your details.</FormHelperText>
                 </FormControl>
-                
 
                 <Button onClick={() => {
                     userRegistration ();
@@ -120,46 +107,3 @@ const RegisterForm = () => {
 export default RegisterForm
 
 
-/* REGISTERFORM MAAR MOET NOG GECLEARED WORDEN*/
-
-/*import React from 'react'
-import {
-    Flex,
-    Box,
-    Heading,
-    FormControl,
-    FormLabel,
-    FormHelperText,
-    FormErrorMessage,
-    Input,
-    Button, Container
-} from '@chakra-ui/react'
-
-const RegisterForm = () => {
-    return (
-        <Container>
-            <FormControl>
-                <FormLabel>Voornaam</FormLabel>
-                <Input variant="loginform" />
-
-                <FormLabel>Tussenvoegsel</FormLabel>
-                <Input variant="loginform" />
-
-                <FormLabel>Achternaam</FormLabel>
-                <Input variant="loginform" />
-
-                <FormLabel>Email address</FormLabel>
-                <Input type="email" variant="loginform" />
-                <FormHelperText>We'll never share your email.</FormHelperText>
-
-                <FormLabel>Wachtwoord</FormLabel>
-                <Input variant="loginform" />
-            </FormControl>
-
-            <Button>Registreren</Button>
-        </Container>
-
-    )
-}
-
-export default RegisterForm */
