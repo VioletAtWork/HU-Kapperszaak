@@ -28,9 +28,7 @@ const Page = () => {
             </Box>
 
             <Section delay={0.1}>
-                <Heading as="h3" variant="section-title">
-                    Locaties
-                </Heading>
+               
                 <Box align="center" my={4}>
                     <NextLink href="/locaties">
                         <Button rightIcon={<ChevronRightIcon />} colorScheme="teal" variant="outline">
