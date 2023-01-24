@@ -43,7 +43,8 @@ const WiFiAuth = () => {
         <Box p={8} mt={6} bg={bgColor} color={textColor}>
             <Heading as="h1" fontFamily="'Amulya', cursive" fontWeight="bold"  fontSize="40px" color={accent}>Kapperszaak  Marjolein WiFi Login</Heading>
             <Text mt={2} fontFamily="'Open Sans', sans-serif" fontWeight="normal" fontSize="20px">Geniet van je tijd bij ons en je nieuwe kapsel.</Text>
-            <Stack mt={4}>
+            <Stack mt={3} spacing={4}
+            >
                 <FormControl>
                     <FormLabel fontFamily="'Amulya', cursive" fontWeight="bold" color={accent} htmlFor="username">Gebruikersnaam</FormLabel>
                     <Input
@@ -51,7 +52,7 @@ const WiFiAuth = () => {
                         type="text"
                         value={username}
                         onChange={e => setUsername(e.target.value)}
-                        fontFamily="'Sigmar One', cursive"
+                        fontFamily="'Amulya', cursive"
                     />
                 </FormControl>
                 <FormControl>
@@ -61,37 +62,44 @@ const WiFiAuth = () => {
                         type="password"
                         value={password}
                         onChange={e => setPassword(e.target.value)}
-                        fontFamily="'Sigmar One', cursive"
                     />
                 </FormControl>
                 <FormControl>
-                    <FormLabel fontFamily="'Amulya', cursive" fontWeight="bold" color={accent}>Select User Type</FormLabel>
-                        <Flex>
-                            <Box as="label" mr={4} display='block' rounded='lg' p={4} bg={userType === "Medewerker" ? accent : "gray.500"} _hover={{ bg: accent }}>
+                    <FormLabel
+                        fontFamily="'Supreme', cursive"
+                        fontWeight="bold"
+                        color={accent}
+                    >
+                        Select User Type
+                    </FormLabel>
+                        <Flex
+                            fontFamily="'Synonym', cursive"
+                        >
+                            <Box w={"full"} textAlign={"center"} as="label" mr={4} display='block' rounded='lg' p={4} bg={userType === "Medewerker" ? accent : "gray.200"} _hover={{ bg: accent }}>
                                 <Radio
                                     id="Medewerker"
                                     name="userType"
                                     value="Medewerker"
                                     onChange={e => setUserType(e.target.value)}
-                                    fontFamily="'Sigmar One', cursive"
                                     isChecked={userType === "Medewerker"}
+                                    fontFamily="'Supreme', cursive"
                                 />
                                 Medewerker
                             </Box>
-                            <Box as="label" display='block' rounded='lg' p={4} bg={userType === "Gast" ? accent : "gray.500"} _hover={{ bg: accent }}>
+                            <Box w={"full"} textAlign={"center"} as="label" display='block' rounded='lg' p={4} bg={userType === "Gast" ? accent : "gray.200"} _hover={{ bg: accent }}>
                                 <Radio
                                     id="Gast"
                                     name="userType"
                                     value="Gast"
                                     onChange={e => setUserType(e.target.value)}
-                                    fontFamily="'Sigmar One', cursive"
+                                    fontFamily="'Supreme', cursive"
                                     isChecked={userType === "Gast"}
                                 />
                                 Gast
                             </Box>
                         </Flex>
                 </FormControl>
-                <Button fontFamily="'Sigmar One', cursive" fontWeight="bold" bg={accent} color={textColor} onClick={handleSubmit}>Submit</Button>
+                <Button fontFamily="'Synonym', cursive" fontWeight="bold" bg={accent} color={textColor} onClick={handleSubmit}>Indienen</Button>
             </Stack>
         </Box>
     )
