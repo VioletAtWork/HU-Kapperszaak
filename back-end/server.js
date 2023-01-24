@@ -11,8 +11,8 @@ const saltRounds = 10;
 
 const db = createPool({
     host: "localhost",
-    user: "root", //DEFAULT = "ROOT"
-    password: "123456789",
+    user: "sqluser", //DEFAULT = "ROOT"
+    password: "password",
     database: "kapperszaakdb",
 });
 
@@ -39,7 +39,7 @@ register.post("/register", (req, res)=> {
     const useremail = req.body.userEmail
     const userpassword = req.body.userPassword
 
-// DATA ENCRYPTION USING BCRYPT AND SALT    
+// PASSWORD HASH FUNCTION    
 
     bcrypt.hash(userpassword, saltRounds, (err, passwordHash) => { 
         if (err) {
@@ -75,10 +75,11 @@ register.post("/register", (req, res)=> {
                 }   
 
                 if (result.length > 0) {
-                        res.send ({registrationFailur: "This email already exists" }) 
+                        res.send ({ registrationFailur: "This email already exists" }) 
                     } else {
                         db.query(sqlInsert, [useremail, passwordHash, firstNameHash, middleNameHash, lastNameHash], (err, res)=> { 
-                        });
+                        console.log(res)
+                    });
                         res.send({ registrationSuccesfull: "You have been registrated!"}) // SEND EMAIL TO THE EMAIL IN HERE??? //
                         }
                     });

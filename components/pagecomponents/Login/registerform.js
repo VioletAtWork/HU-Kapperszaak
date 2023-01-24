@@ -34,7 +34,7 @@ const RegisterForm = () => {
         const userRegistration = () => {
             const regExP = /^[a-zA-Z0-9._%+-]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/g
 
-        if (regExP.test(emailCheck)) { // CHECKS EMAIL FORMAT
+        if (regExP.test(emailCheck)) { // CHECKS EMAIL FORMAT               
 
                 Axios.post("http://localhost:3001/register", {
                 userFirstName: userfirstName,
