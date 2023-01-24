@@ -37,6 +37,9 @@ const Navbar = props => {
                             Een afspraak maken
                         </Button>
                     </NextLink>
+
+
+
                 </HStack>
 
                 <Flex align="center" ml="auto"
