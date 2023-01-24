@@ -40,12 +40,12 @@ const WiFiAuth = () => {
     }
 
     return (
-        <Box p={5} bg={bgColor} color={textColor}>
-            <Heading as="h1" fontFamily="'Amulya', cursive" fontWeight="bold"  fontSize="40px" color={accent}>Welcome to Kapperszaak Marjolein</Heading>
-            <Text fontFamily="'Open Sans', sans-serif" fontWeight="normal" fontSize="20px">Geniet van je tijd bij ons en je nieuwe kapsel.</Text>
-            <Stack spacing={4}>
+        <Box p={8} mt={6} bg={bgColor} color={textColor}>
+            <Heading as="h1" fontFamily="'Amulya', cursive" fontWeight="bold"  fontSize="40px" color={accent}>Kapperszaak  Marjolein WiFi Login</Heading>
+            <Text mt={2} fontFamily="'Open Sans', sans-serif" fontWeight="normal" fontSize="20px">Geniet van je tijd bij ons en je nieuwe kapsel.</Text>
+            <Stack mt={4}>
                 <FormControl>
-                    <FormLabel fontFamily="'Amulya', cursive" fontWeight="bold" color={accent} htmlFor="username">Username</FormLabel>
+                    <FormLabel fontFamily="'Amulya', cursive" fontWeight="bold" color={accent} htmlFor="username">Gebruikersnaam</FormLabel>
                     <Input
                         id="username"
                         type="text"
@@ -55,7 +55,7 @@ const WiFiAuth = () => {
                     />
                 </FormControl>
                 <FormControl>
-                    <FormLabel fontFamily="'Amulya', cursive" fontWeight="bold" color={accent} htmlFor="password">Password</FormLabel>
+                    <FormLabel fontFamily="'Amulya', cursive" fontWeight="bold" color={accent} htmlFor="password">Wachtwoord</FormLabel>
                     <Input
                         id="password"
                         type="password"
@@ -66,7 +66,6 @@ const WiFiAuth = () => {
                 </FormControl>
                 <FormControl>
                     <FormLabel fontFamily="'Amulya', cursive" fontWeight="bold" color={accent}>Select User Type</FormLabel>
-                        <FormLabel fontFamily="'Amulya', cursive" fontWeight="bold" color={accent}>Select User Type</FormLabel>
                         <Flex>
                             <Box as="label" mr={4} display='block' rounded='lg' p={4} bg={userType === "Medewerker" ? accent : "gray.500"} _hover={{ bg: accent }}>
                                 <Radio
