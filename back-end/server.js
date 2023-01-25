@@ -53,21 +53,6 @@ register.post("/register", (req, res)=> {
             console.log(err)
         }
 
-        bcrypt.hash(usermiddlename, saltRounds, (err, middleNameHash) => {
-                if (err) {
-                    console.log (err)
-            }
-        
-            bcrypt.hash(userlastname, saltRounds, (err, lastNameHash) => {
-                if (err) {
-                    console.log (err)
-                }
-            
-                bcrypt.hash(userfirstname, saltRounds, (err, firstNameHash) => {
-                    if (err) {
-                        console.log (err)
-                    }
-
 // CHECK IF EMAIL ADRESS ALREADY EXISTS IN DATABASE. 
 // IF TRUE RETURN MESSAGE THAT EMAIL ALREADY EXISTS
 // IF FALSE INSERT INTO THE DATABASE AND COMPLETE REGISTRATION
@@ -84,16 +69,13 @@ register.post("/register", (req, res)=> {
                 if (result.length > 0) {
                         res.send ({registrationFailur: "This email already exists" }) 
                     } else {
-                        db.query(sqlInsert, [useremail, passwordHash, firstNameHash, middleNameHash, lastNameHash], (err, res)=> { 
+                        db.query(sqlInsert, [useremail, passwordHash], (err, res)=> { 
                         });
                         res.send({ registrationSuccesfull: "You have been registered!"}) // SEND EMAIL TO THE EMAIL IN HERE??? //
                         }
                     });
                 });              
             }); 
-        }); 
-    }); 
-});
 
 
 /* Login --> */

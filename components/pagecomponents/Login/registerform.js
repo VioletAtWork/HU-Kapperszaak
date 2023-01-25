@@ -12,6 +12,7 @@ import {
     Button, Container
 } from '@chakra-ui/react';
 import Axios from 'axios';
+// import PasswordChecklist from "react-password-checklist";
 
 const RegisterForm = () => {
 
@@ -94,6 +95,21 @@ const RegisterForm = () => {
             document.getElementById("registratieFormulier4").value = "";
         }
 
+        
+        //Alles samenvoegen
+
+        function CheckFormBeforeSending(){
+            if (getElementById("registerFormulier4").value != ("")) 
+            
+            {resetForm(); resetForm1(); resetForm2(); resetForm3(); resetForm4();
+            
+            // setTimeout
+            
+            //Successvol ingelogd
+            document.location.href="/"
+            }
+        }
+
 
         return (
             <Container>
@@ -137,6 +153,19 @@ const RegisterForm = () => {
                     variant="loginform" onChange={(e) => {
                         setUserPassword(e.target.value);
                     } } /> 
+
+                {/* <PasswordChecklist  PASSWORD CHECKING
+                rules={["minLength","specialChar","number","capital"]}
+                minLength={5}
+                value={UserPassword}
+
+                messages={{minLength: "Password is longer than 8 characters.",
+                    specialChar: "Password has special characters.",
+                    number: "The password has a number.",
+                   capital: "The password has a capital letter.",
+                    match: "Passwords matches!",
+                }}
+                /> */}
                 
 
                 <FormHelperText>
@@ -145,13 +174,9 @@ const RegisterForm = () => {
                 </FormControl>
                 
 
-                <Button onClick={() => {resetForm(); resetForm1(); resetForm2(); resetForm3(); resetForm4(); 
+                <Button onClick={() => {CheckFormBeforeSending();
                 
                 userRegistration();
-                
-                // wait time here
-
-                document.location.href="/"
                 }}>Registreren</Button>
 
                 <p>{registrationSucces}</p>
