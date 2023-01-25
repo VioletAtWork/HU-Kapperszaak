@@ -96,7 +96,7 @@ const RegisterForm = () => {
         }
 
         
-        //Alles samenvoegen
+        //Alles samenvoegen test
         function waitAsec(){
             setTimeout(redirection, 5000)
         }
