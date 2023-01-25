@@ -6,6 +6,8 @@ const login = express();
 import { createPool } from "mysql";
 import bcrypt, { hash } from 'bcrypt'; // BCRYPT IS THE ENCRYPTION ALGORITHM
 const saltRounds = 10;
+import Encrypt from './EncryptionHandler.js';
+import Decrypt from './EncryptionHandler.js';
 
 /* DATABASE CONNECTION --> */
 
@@ -33,62 +35,59 @@ register.use(express.json())
 register.use(bodyParser.urlencoded({ extended: true }));
 
 register.post("/register", (req, res)=> {
-    const userfirstname = req.body.userFirstName
-    const usermiddlename = req.body.userMiddleName
-    const userlastname = req.body.userLastName
-    const useremail = req.body.userEmail
-    const userpassword = req.body.userPassword
+    const { userFirstName, 
+            userMiddleName, 
+            userLastName, 
+            userEmail, 
+            userPassword } = req.body
+
+// USER DETAIL ENCRYPTION
+
+    const userFirstNameEncrypt = Encrypt.encrypt(userFirstName);
+    const userMiddleNameEncrypt = Encrypt.encrypt(userMiddleName);
+    const userLastNameEncrypt = Encrypt.encrypt(userLastName);
+
+    const userEmailEncrypt = Encrypt.encrypt(userEmail);
+    const userEmailDecrypt = Decrypt.decrypt(userEmailEncrypt);
 
 // PASSWORD HASH FUNCTION    
 
-    bcrypt.hash(userpassword, saltRounds, (err, passwordHash) => { 
+    bcrypt.hash(userPassword, saltRounds, (err, passwordHash) => { 
         if (err) {
             console.log(err)
         }
-
-        bcrypt.hash(usermiddlename, saltRounds, (err, middleNameHash) => {
-                if (err) {
-                    console.log (err)
-            }
-        
-            bcrypt.hash(userlastname, saltRounds, (err, lastNameHash) => {
-                if (err) {
-                    console.log (err)
-                }
-            
-                bcrypt.hash(userfirstname, saltRounds, (err, firstNameHash) => {
-                    if (err) {
-                        console.log (err)
-                    }
-
+           
 // CHECK IF EMAIL ADRESS ALREADY EXISTS IN DATABASE. 
 // IF TRUE RETURN MESSAGE THAT EMAIL ALREADY EXISTS
 // IF FALSE INSERT INTO THE DATABASE AND COMPLETE REGISTRATION
 
     const userExist = "SELECT email FROM userinformation WHERE email = ?";
-    const sqlInsert = "INSERT INTO userinformation (email, password, firstName, middleName, lastName) VALUES (?,?,?,?,?)"
+    const sqlInsert = "INSERT INTO userinformation (email, iv, password, firstName, middleName, lastName) VALUES (?,?,?,?,?,?)"
 
-        db.query(userExist, [useremail],
+        db.query(userExist, [userEmail],
             (err, result) => {
-                if (err) {
-                    console.log (err);
+                if (result) {
+                    console.log (result);
                 }   
 
                 if (result.length > 0) {
                         res.send ({ registrationFailur: "This email already exists" }) 
-                    } else {
-                        db.query(sqlInsert, [useremail, passwordHash, firstNameHash, middleNameHash, lastNameHash], (err, res)=> { 
-                        console.log(res)
+                    } else { 
+                        db.query(sqlInsert, [
+                            userEmail, 
+                            userEmailEncrypt.iv, 
+                            passwordHash, 
+                            userFirstNameEncrypt.text, 
+                            userMiddleNameEncrypt.text, 
+                            userLastNameEncrypt.text],
+                        (err, res)=> { 
+                        console.log(err)
                     });
                         res.send({ registrationSuccesfull: "You have been registrated!"}) // SEND EMAIL TO THE EMAIL IN HERE??? //
                         }
                     });
                 });              
-            }); 
-        }); 
-    }); 
-});
-
+            });  
 
 /* Login --> */
 

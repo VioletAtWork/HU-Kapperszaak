@@ -1,34 +1,34 @@
 import crypto from 'crypto';
-const secret = "pppppppppppppppppppppppppppppppp";
+const secret = crypto.randomBytes(32);
 
-const encrypt = (password) => {
+const encrypt = (text) => {
   const iv = Buffer.from(crypto.randomBytes(16));
   const cipher = crypto.createCipheriv("aes-256-ctr", Buffer.from(secret), iv);
 
-  const encryptedPassword = Buffer.concat([
-    cipher.update(password),
+  const encryptedtext = Buffer.concat([
+    cipher.update(text),
     cipher.final(),
   ]);
 
   return {
     iv: iv.toString("hex"),
-    password: encryptedPassword.toString("hex"),
+    text: encryptedtext.toString("hex"),
   };
 };
 
-const decrypt = (encryption) => {
+const decrypt = (encryptiontext) => {
   const decipher = crypto.createDecipheriv(
     "aes-256-ctr",
     Buffer.from(secret),
-    Buffer.from(encryption.iv, "hex")
+    Buffer.from(encryptiontext.iv, "hex")
   );
 
-  const decryptedPassword = Buffer.concat([
-    decipher.update(Buffer.from(encryption.password, "hex")),
+  const decryptedText = Buffer.concat([
+    decipher.update(Buffer.from(encryptiontext.text, "hex")),
     decipher.final(),
   ]);
 
-  return decryptedPassword.toString();
+  return decryptedText.toString();
 };
 
 export default { encrypt, decrypt };
