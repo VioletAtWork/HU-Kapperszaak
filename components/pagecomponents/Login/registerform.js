@@ -97,16 +97,24 @@ const RegisterForm = () => {
 
         
         //Alles samenvoegen
+        function waitAsec(){
+            setTimeout(redirection, 5000)
+        }
+
+        function redirection(){
+            document.location.href="/" 
+        }
+
 
         function CheckFormBeforeSending(){
-            if (getElementById("registerFormulier4").value != ("")) 
+            if (document.getElementById("registratieFormulier4").value != ("")) 
             
             {resetForm(); resetForm1(); resetForm2(); resetForm3(); resetForm4();
             
             // setTimeout
+            waitAsec();
             
             //Successvol ingelogd
-            document.location.href="/"
             }
         }
 
