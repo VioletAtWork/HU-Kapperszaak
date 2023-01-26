@@ -115,8 +115,8 @@ const Admin = () => {
             
             <Text>
             {RegisteredList.map((val)=> {
-                return 
-                <h1> Naam: {val.userfirstname} | {val.usermiddlename} | {val.userlastname}
+                 
+                <h1> Naam: {val.userFirstNameEncrypt} | {val.userMiddleNameEncrypt} | {val.userLastNameEncrypt}
                 </h1>
             })};
 

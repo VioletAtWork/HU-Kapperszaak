@@ -33,12 +33,16 @@ const LoginForm = () => {
               
                 if (response.data.message) {
                     setLoginStatus(response.data.message) // Message when user inlog in incorrect
-                } else {
+                } else {redirection()
                     setLoginStatus(response.data.conformation) // Message when user is correctly logged in
                 }
             });
             }
             
+            function redirection(){
+                document.location.href="/" 
+            };
+    
         };
 
     return (
@@ -55,7 +59,7 @@ const LoginForm = () => {
                 <FormLabel>
                     Wachtwoord
                 </FormLabel>
-                <Input variant="loginform" onChange={(e) => {
+                <Input type="password" variant="loginform" onChange={(e) => {
                         setLoginPassword(e.target.value);
                     } } />
                 <FormHelperText>
