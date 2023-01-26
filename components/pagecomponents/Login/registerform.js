@@ -74,49 +74,6 @@ const RegisterForm = () => {
 
         }, [isAdding]);*/
         
-        //ResetForm gebeuren, ja spaghetti I know xD
-        function resetForm(){
-            document.getElementById("registratieFormulier").value = "";
-        }
-
-        function resetForm1(){
-            document.getElementById("registratieFormulier1").value = "";
-        }
-
-        function resetForm2(){
-            document.getElementById("registratieFormulier2").value = "";
-        }
-
-        function resetForm3(){
-            document.getElementById("registratieFormulier3").value = "";
-        }
-
-        function resetForm4(){
-            document.getElementById("registratieFormulier4").value = "";
-        }
-
-        
-        //Alles samenvoegen test
-        function waitAsec(){
-            setTimeout(redirection, 5000)
-        }
-
-        function redirection(){
-            document.location.href="/" 
-        }
-
-
-        function CheckFormBeforeSending(){
-            if (document.getElementById("registratieFormulier4").value != ("")) 
-            
-            {resetForm(); resetForm1(); resetForm2(); resetForm3(); resetForm4();
-            
-            // setTimeout
-            waitAsec();
-            
-            //Successvol ingelogd
-            }
-        }
 
 
         return (
@@ -161,6 +118,8 @@ const RegisterForm = () => {
                     variant="loginform" onChange={(e) => {
                         setUserPassword(e.target.value);
                     } } /> 
+                    <p>Wachtwoord moet minimaal één hoofdletter, speciale karakter & één cijfer bevatten</p>
+                    {/* <p>{passwordCheck}</p> */}
 
                 {/* <PasswordChecklist  PASSWORD CHECKING
                 rules={["minLength","specialChar","number","capital"]}
@@ -182,6 +141,9 @@ const RegisterForm = () => {
                 </FormControl>
                 
 
+                
+
+
                 <Button onClick={() => {CheckFormBeforeSending();
                 
                 userRegistration();
@@ -192,6 +154,50 @@ const RegisterForm = () => {
             </Container>
 
         );
+
+        
+        //ResetForm gebeuren, ja spaghetti I know xD
+        function resetForm(){
+            document.getElementById("registratieFormulier").value = "";
+        };
+        function resetForm1(){
+            document.getElementById("registratieFormulier1").value = "";
+        };
+
+        function resetForm2(){
+            document.getElementById("registratieFormulier2").value = "";
+        };
+
+        function resetForm3(){
+            document.getElementById("registratieFormulier3").value = "";
+        };
+
+        function resetForm4(){
+            document.getElementById("registratieFormulier4").value = "";
+        };
+
+        
+        //Alles samenvoegen test
+        function waitAsec(){
+            setTimeout(redirection, 5000)
+        };
+
+        function redirection(){
+            document.location.href="/" 
+        };
+
+
+        function CheckFormBeforeSending(){
+            if (document.getElementById("registratieFormulier2").value != ("")) 
+            
+            {resetForm(); resetForm1(); resetForm2(); resetForm3(); resetForm4();
+            
+            
+            waitAsec();
+            
+            //Successvol ingelogd
+            };
+        };
     };
      
 export default RegisterForm

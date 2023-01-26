@@ -6,36 +6,24 @@ import Axios from 'axios';
 import React, { useState, useEffect } from 'react'
 import { validateConfig } from "next/dist/server/config-shared";
 
-
-const ShowUsers = () => {
+const Admin = () {
     const [userfirstName, setUserFirstName] = useState("");
     const [usermiddleName, setUserMiddleName] = useState("");
     const [userlastName, setUserLastName] = useState("");
     const [userEmail, setUserEmail] = useState("");
     const [userPassword, setUserPassword] = useState("");
+    const [RegisteredList, setRegisteredList] = useState([]);
 
 
-    const findUser = () => {
-
-        // voor admin dashboard {
-            Axios.post("http://localhost:3001/register", {
-            loginEmail: loginemail,
-            loginPassword: loginpassword,
-        }).then((response) => {
-          
-            if (response.data.message) {
-                setLoginStatus(response.data.message) // Message when user inlog in incorrect
-            } else {
-                setLoginStatus(response.data.conformation) // Message when user is correctly logged in
-            }
-        });
-        }
-        
-    };
+    // voor admin dashboard 
+    useEffect (() => {
+            Axios.get("http://localhost:3001/admin").then((response)=> {
+                setRegisteredList(response.data)
+    });
+}, []);
 
 
-
-const Admin = () => (
+    return (
     <Layout title="Admin">
         <Box
             borderRadius="lg"
@@ -139,8 +127,7 @@ const Admin = () => (
 
         </Box>
     </Layout>
+    );
 
-
-)
 
 export default Admin

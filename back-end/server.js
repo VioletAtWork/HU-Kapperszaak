@@ -39,6 +39,16 @@ login.use(bodyParser.urlencoded({ extended: true }));
 /* REGISTER --> VARIABLES PULLED FROM FRONTEND */
 /* REGISTER --> INSERT STATEMENT OF PARAMETER VARIABLES - SQL injection preventing - QUERY INSERT INTO DATABASE */
 
+//info pakken van database
+register.get("/admin", (req, res)=> {
+    const sqlSelect = "SELECT * FROM userinformation";
+        db.query(sqlSelect, (err, result) => {
+            res.send(result);
+        });
+});
+
+
+//info inzetten in database
 register.post("/register", (req, res)=> {
     const userfirstname = req.body.userFirstName
     const usermiddlename = req.body.userMiddleName
@@ -56,7 +66,8 @@ register.post("/register", (req, res)=> {
 // CHECK IF EMAIL ADRESS ALREADY EXISTS IN DATABASE. 
 // IF TRUE RETURN MESSAGE THAT EMAIL ALREADY EXISTS
 // IF FALSE INSERT INTO THE DATABASE AND COMPLETE REGISTRATION
-
+    
+    const getData = "SELECT * FROM userinformation";
     const userExist = "SELECT email FROM userinformation WHERE email = ?";
     const sqlInsert = "INSERT INTO userinformation (email, password, firstName, middleName, lastName) VALUES (?,?,?,?,?)"
 
