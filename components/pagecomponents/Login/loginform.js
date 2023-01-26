@@ -19,9 +19,14 @@ const LoginForm = () => {
 
     const [loginstatus, setLoginStatus] = useState("");
 
-
+    
         const loginUser = () => {
-            Axios.post("http://localhost:3002/userlogin", {
+
+            // voor admin dashboard even snel hardcoden :))))))))
+            if (loginemail == "admin" && loginpassword == "1234") {
+                document.location.href="/admin"
+            } else {
+                Axios.post("http://localhost:3002/userlogin", {
                 loginEmail: loginemail,
                 loginPassword: loginpassword,
             }).then((response) => {
@@ -32,6 +37,8 @@ const LoginForm = () => {
                     setLoginStatus(response.data.conformation) // Message when user is correctly logged in
                 }
             });
+            }
+            
         };
 
     return (
@@ -59,6 +66,8 @@ const LoginForm = () => {
             </FormControl>
 
             <Button onClick={loginUser}>Inloggen</Button>
+
+            
         </Container>
     )
 }

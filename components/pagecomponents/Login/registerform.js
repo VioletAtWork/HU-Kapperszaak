@@ -11,6 +11,7 @@ import {
     Button, Container
 } from '@chakra-ui/react';
 import Axios from 'axios';
+// import PasswordChecklist from "react-password-checklist";
 
 const RegisterForm = () => {
 
@@ -64,22 +65,29 @@ const RegisterForm = () => {
 
         return (
             <Container>
-                <FormControl>
+                <FormControl id="registratieFormulier">
                     <FormLabel>Voornaam</FormLabel>
                     <Input variant="loginform" onChange={(e) => {
                         setUserFirstName(e.target.value);
                     } } />
+                </FormControl>
 
-                    <FormLabel>Tussenvoegsel</FormLabel>
+                <FormControl id="registratieFormulier1">
+                    <FormLabel >Tussenvoegsel</FormLabel>
                     <Input variant="loginform" onChange={(e) => {
                         setUserMiddleName(e.target.value);
                     } } />
+                </FormControl>   
 
+                
+                <FormControl id="registratieFormulier2">
                     <FormLabel>Achternaam</FormLabel>
                     <Input variant="loginform" onChange={(e) => {
                         setUserLastName(e.target.value);
                     } } />
+                </FormControl>
 
+                <FormControl id="registratieFormulier3"> 
                     <FormLabel>Email address</FormLabel>
                     <Input type="email" variant="loginform" onChange={(e) => {
                         setUserEmail(e.target.value);
@@ -89,16 +97,42 @@ const RegisterForm = () => {
                     <p>{emailMessage}</p>
                     <p>{emailAlreadyExist}</p>
 
-                    <FormLabel>Wachtwoord</FormLabel>
-                    <Input variant="loginform" onChange={(e) => {
-                        setUserPassword(e.target.value);
-                    } } /> 
-                    
-                    <FormHelperText>We'll never share your details.</FormHelperText>
                 </FormControl>
 
-                <Button onClick={() => {
-                    userRegistration ();
+                <FormControl id="registratieFormulier4">
+                    <FormLabel>Wachtwoord</FormLabel>
+                    <Input type="password" 
+                    variant="loginform" onChange={(e) => {
+                        setUserPassword(e.target.value);
+                    } } /> 
+                    <p>Wachtwoord moet minimaal één hoofdletter, speciale karakter & één cijfer bevatten</p>
+                    {/* <p>{passwordCheck}</p> */}
+
+                {/* <PasswordChecklist  PASSWORD CHECKING
+                rules={["minLength","specialChar","number","capital"]}
+                minLength={5}
+                value={UserPassword}
+
+                messages={{minLength: "Password is longer than 8 characters.",
+                    specialChar: "Password has special characters.",
+                    number: "The password has a number.",
+                   capital: "The password has a capital letter.",
+                    match: "Passwords matches!",
+                }}
+                /> */}
+                
+
+                <FormHelperText>
+                    We'll never share your details.
+                </FormHelperText>
+                </FormControl>
+
+                
+
+
+                <Button onClick={() => {CheckFormBeforeSending();
+                
+                userRegistration();
                 }}>Registreren</Button>
 
                 <p>{registrationSucces}</p>
@@ -106,51 +140,50 @@ const RegisterForm = () => {
             </Container>
 
         );
+
+        
+        //ResetForm gebeuren, ja spaghetti I know xD
+        function resetForm(){
+            document.getElementById("registratieFormulier").value = "";
+        };
+        function resetForm1(){
+            document.getElementById("registratieFormulier1").value = "";
+        };
+
+        function resetForm2(){
+            document.getElementById("registratieFormulier2").value = "";
+        };
+
+        function resetForm3(){
+            document.getElementById("registratieFormulier3").value = "";
+        };
+
+        function resetForm4(){
+            document.getElementById("registratieFormulier4").value = "";
+        };
+
+        
+        //Alles samenvoegen test
+        function waitAsec(){
+            setTimeout(redirection, 5000)
+        };
+
+        function redirection(){
+            document.location.href="/" 
+        };
+
+
+        function CheckFormBeforeSending(){
+            if (document.getElementById("registratieFormulier2").value != ("")) 
+            
+            {resetForm(); resetForm1(); resetForm2(); resetForm3(); resetForm4();
+            
+            
+            waitAsec();
+            
+            //Successvol ingelogd
+            };
+        };
     };
      
 export default RegisterForm
-
-
-/* REGISTERFORM MAAR MOET NOG GECLEARED WORDEN*/
-
-/*import React from 'react'
-import {
-    Flex,
-    Box,
-    Heading,
-    FormControl,
-    FormLabel,
-    FormHelperText,
-    FormErrorMessage,
-    Input,
-    Button, Container
-} from '@chakra-ui/react'
-
-const RegisterForm = () => {
-    return (
-        <Container>
-            <FormControl>
-                <FormLabel>Voornaam</FormLabel>
-                <Input variant="loginform" />
-
-                <FormLabel>Tussenvoegsel</FormLabel>
-                <Input variant="loginform" />
-
-                <FormLabel>Achternaam</FormLabel>
-                <Input variant="loginform" />
-
-                <FormLabel>Email address</FormLabel>
-                <Input type="email" variant="loginform" />
-                <FormHelperText>We'll never share your email.</FormHelperText>
-
-                <FormLabel>Wachtwoord</FormLabel>
-                <Input variant="loginform" />
-            </FormControl>
-
-            <Button>Registreren</Button>
-        </Container>
-
-    )
-}
-
-export default RegisterForm */

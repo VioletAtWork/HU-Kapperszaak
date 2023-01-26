@@ -16,7 +16,7 @@ const LogoBox = styled.span`
       transform: rotate(20deg);
     }
 `
-
+//test
 const Logo = () => {
     const haircutLogo = `/images/haircut${useColorModeValue('', '-dark')}.png`
 
