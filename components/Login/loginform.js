@@ -1,42 +1,49 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
+    Flex,
+    Box,
+    Heading,
     FormControl,
     FormLabel,
     FormHelperText,
+    FormErrorMessage,
     Input,
     Button, Container
 } from '@chakra-ui/react'
 import Axios from 'axios';
-import {useRouter} from "next/router";
+import { useRouter } from 'next/router';
 
 const LoginForm = () => {
 
     const [loginemail, setLoginEmail] = useState("");
     const [loginpassword, setLoginPassword] = useState("");
+
     const [loginstatus, setLoginStatus] = useState("");
-    const router = useRouter();
 
-
+    
         const loginUser = () => {
-            if (loginemail === "admin" && loginpassword === "1234")
-            {
-                router.replace('/admin').then(r => setLoginStatus("Admin login: successful"));
-            }
-            else
-            {
+
+            // voor admin dashboard even snel hardcoden :))))))))
+            if (loginemail == "admin@outlook.com" && loginpassword == "1234") {
+                document.location.href="/admin"
+            } else {
                 Axios.post("http://localhost:3002/userlogin", {
-                    loginEmail: loginemail,
-                    loginPassword: loginpassword,
-                }).then((response) => {
-
-                    if (response.data.message) {
-                        setLoginStatus(response.data.message) // Message when user inlog in incorrect
-                    } else {
-                        setLoginStatus(response.data.conformation) // Message when user is correctly logged in
-                    }
-                });
+                loginEmail: loginemail,
+                loginPassword: loginpassword,
+            }).then((response) => {
+              
+                if (response.data.message) {
+                    setLoginStatus(response.data.message) // Message when user inlog in incorrect
+                } else {redirection()
+                    setLoginStatus(response.data.conformation) // Message when user is correctly logged in
+                }
+            });
             }
-
+            
+            function redirection(){
+                document.location.href="/" 
+            };
+    
         };
 
     return (
@@ -53,7 +60,7 @@ const LoginForm = () => {
                 <FormLabel>
                     Wachtwoord
                 </FormLabel>
-                <Input variant="loginform" onChange={(e) => {
+                <Input type="password" variant="loginform" onChange={(e) => {
                         setLoginPassword(e.target.value);
                     } } />
                 <FormHelperText>
@@ -64,6 +71,8 @@ const LoginForm = () => {
             </FormControl>
 
             <Button onClick={loginUser}>Inloggen</Button>
+
+            
         </Container>
     )
 }

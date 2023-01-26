@@ -6,15 +6,27 @@ const login = express();
 import { createPool } from "mysql";
 import bcrypt, { hash } from 'bcrypt'; // BCRYPT IS THE ENCRYPTION ALGORITHM
 const saltRounds = 10;
+import Encrypt from './EncryptionHandler.js';
+import Decrypt from './EncryptionHandler.js';
 
 /* DATABASE CONNECTION --> */
 
 const db = createPool({
     host: "localhost",
-    user: "root", //DEFAULT = "ROOT"
-    password: "123456789",
+    user: "sqluser", //DEFAULT = "ROOT"
+    password: "password",
     database: "kapperszaakdb",
 });
+
+/* host: "oict-1699778",
+    user: "root",
+    password: "violet",
+    database: "kapperszaakdb",
+
+host: oict-1699778
+IP:  145.89.192.249
+Port: 3306
+Voor sommige syntax moet je het mss zo gebruiken 145.89.192.249:3306 */
 
 /* LOCALHOST --> */
 
@@ -32,62 +44,77 @@ register.use(cors());
 register.use(express.json())
 register.use(bodyParser.urlencoded({ extended: true }));
 
+// //info pakken van database
+// register.get("/admin", (req, res) => {
+//     const sqlSelect = "SELECT * FROM userinformation";
+//         db.query(sqlSelect, (err, result) => {
+//             res.send(result);
+//         });
+// });
+
+// //info inzetten in database
+// register.post("/register", (req, res)=> {
+//     const userfirstname = req.body.userFirstName
+//     const usermiddlename = req.body.userMiddleName
+//     const userlastname = req.body.userLastName
+//     const useremail = req.body.userEmail
+//     const userpassword = req.body.userPassword
+
+
 register.post("/register", (req, res)=> {
-    const userfirstname = req.body.userFirstName
-    const usermiddlename = req.body.userMiddleName
-    const userlastname = req.body.userLastName
-    const useremail = req.body.userEmail
-    const userpassword = req.body.userPassword
+    const { userFirstName, 
+            userMiddleName, 
+            userLastName, 
+            userEmail, 
+            userPassword } = req.body
 
-// DATA ENCRYPTION USING BCRYPT AND SALT    
+// USER DETAIL ENCRYPTION
 
-    bcrypt.hash(userpassword, saltRounds, (err, passwordHash) => { 
+    const userFirstNameEncrypt = Encrypt.encrypt(userFirstName);
+    const userMiddleNameEncrypt = Encrypt.encrypt(userMiddleName);
+    const userLastNameEncrypt = Encrypt.encrypt(userLastName);
+
+    const userEmailEncrypt = Encrypt.encrypt(userEmail);
+    const userEmailDecrypt = Decrypt.decrypt(userEmailEncrypt);
+
+// PASSWORD HASH FUNCTION    
+
+    bcrypt.hash(userPassword, saltRounds, (err, passwordHash) => { 
         if (err) {
             console.log(err)
         }
-
-        bcrypt.hash(usermiddlename, saltRounds, (err, middleNameHash) => {
-                if (err) {
-                    console.log (err)
-            }
-        
-            bcrypt.hash(userlastname, saltRounds, (err, lastNameHash) => {
-                if (err) {
-                    console.log (err)
-                }
-            
-                bcrypt.hash(userfirstname, saltRounds, (err, firstNameHash) => {
-                    if (err) {
-                        console.log (err)
-                    }
-
+           
 // CHECK IF EMAIL ADRESS ALREADY EXISTS IN DATABASE. 
 // IF TRUE RETURN MESSAGE THAT EMAIL ALREADY EXISTS
 // IF FALSE INSERT INTO THE DATABASE AND COMPLETE REGISTRATION
 
     const userExist = "SELECT email FROM userinformation WHERE email = ?";
-    const sqlInsert = "INSERT INTO userinformation (email, password, firstName, middleName, lastName) VALUES (?,?,?,?,?)"
+    const sqlInsert = "INSERT INTO userinformation (email, iv, password, firstName, middleName, lastName) VALUES (?,?,?,?,?,?)"
 
-        db.query(userExist, [useremail],
+        db.query(userExist, [userEmail],
             (err, result) => {
-                if (err) {
-                    console.log (err);
+                if (result) {
+                    console.log (result);
                 }   
 
                 if (result.length > 0) {
-                        res.send ({registrationFailur: "Deze email bestaat al" }) 
-                    } else {
-                        db.query(sqlInsert, [useremail, passwordHash, firstNameHash, middleNameHash, lastNameHash], (err, res)=> { 
-                        });
-                        res.send({ registrationSuccesfull: "Je bent geregistreerd!"}) // SEND EMAIL TO THE EMAIL IN HERE??? //
+                        res.send ({ registrationFailur: "This email already exists" }) 
+                    } else { 
+                        db.query(sqlInsert, [
+                            userEmail, 
+                            userEmailEncrypt.iv, 
+                            passwordHash, 
+                            userFirstNameEncrypt.text, 
+                            userMiddleNameEncrypt.text, 
+                            userLastNameEncrypt.text],
+                        (err, res)=> { 
+                        console.log(err)
+                    });
+                        res.send({ registrationSuccesfull: "You have been registrated!"}) // SEND EMAIL TO THE EMAIL IN HERE??? //
                         }
                     });
                 });              
-            }); 
-        }); 
-    }); 
-});
-
+            });  
 
 /* Login --> */
 
@@ -115,7 +142,7 @@ login.post("/userlogin", (req, res)=> {
                         if (response) {
                             res.send({ conformation: "Succesvol ingelogt!"}); // Message send when login is succesfull
                         } else {
-                            res.send({ message: "Email of wachtwoord is incorrect"}); //Message that is send back to the frontend when password is incorrect
+                            res.send({ message: "Email of wachtwoord is incorrect!"}); //Message that is send back to the frontend when password is incorrect
                         }
                     }
                 );

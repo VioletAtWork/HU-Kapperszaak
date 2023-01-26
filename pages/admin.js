@@ -1,7 +1,24 @@
-import {Box, Button, Heading, SimpleGrid, Stack, Text, useColorModeValue} from "@chakra-ui/react";
+import {Box, Button, Container, Heading, SimpleGrid, Stack, Text, useColorModeValue} from "@chakra-ui/react";
 import Layout from "../components/layouts/article";
+import Section from "../components/section";
 
-const Admin = () => (
+import Axios from 'axios';
+import React, { useState, useEffect } from 'react'
+import { validateConfig } from "next/dist/server/config-shared";
+
+
+const Admin = () => {
+    const [RegisteredList, setRegisteredList] = useState([]); // om het te laten zien
+
+
+    useEffect (() => {
+        Axios.get("http://localhost:3001/admin").then((response)=> {
+                setRegisteredList(response.data)
+    });
+}, []);
+
+
+    return (
     <Layout title="Admin">
         <Box
             borderRadius="lg"
@@ -10,8 +27,8 @@ const Admin = () => (
             my={1}
             textAlign="center"
             bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
-            css={{ backdropFilter: 'blur(10px)' }}
-        >
+            css={{ backdropFilter: 'blur(10px)' }}>
+
             <Heading as="h1" mb={4}
                      color={useColorModeValue('darkred', 'darkred')}>
                 Admin Dashboard
@@ -72,6 +89,7 @@ const Admin = () => (
                     </Button>
                 </Stack>
 
+
                 <Stack>
                     <Heading as="h2" fontSize={20}>
                         Kappers
@@ -85,7 +103,6 @@ const Admin = () => (
                 </Stack>
 
 
-
                 <Stack>
                     <Heading as="h2" fontSize={20}>
                         Over ons
@@ -94,14 +111,22 @@ const Admin = () => (
                         Pagina wijzigen
                     </Button>
                 </Stack>
-
-
-
-
             </SimpleGrid>
+            
+            <Text>
+            {RegisteredList.map((val)=> {
+                 
+                <h1> Naam: {val.userFirstNameEncrypt} | {val.userMiddleNameEncrypt} | {val.userLastNameEncrypt}
+                </h1>
+            })};
+
+
+                Welkom bij het HairLab Admin dashboard.
+            </Text>
+
         </Box>
     </Layout>
-
-)
+    );
+}
 
 export default Admin
