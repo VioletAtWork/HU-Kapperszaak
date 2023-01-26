@@ -1,5 +1,6 @@
-import {Container, Heading, SimpleGrid} from "@chakra-ui/react";
+import {Box, Button, Container, Heading, SimpleGrid, Stack, Text, useColorModeValue} from "@chakra-ui/react";
 import Layout from "../components/layouts/article";
+import Section from "../components/section";
 
 import Axios from 'axios';
 import React, { useState, useEffect } from 'react'
@@ -113,9 +114,11 @@ const Admin = () => {
             </SimpleGrid>
             
             <Text>
-            {RegisteredList.map((val)=>{
-                return <h1> Naam: {val.userfirstname} | {val.usermiddlename} | {val.userlastname}</h1>
-            })}
+            {RegisteredList.map((val)=> {
+                return 
+                <h1> Naam: {val.userfirstname} | {val.usermiddlename} | {val.userlastname}
+                </h1>
+            })};
 
 
                 Welkom bij het HairLab Admin dashboard.

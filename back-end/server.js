@@ -13,7 +13,7 @@ import Decrypt from './EncryptionHandler.js';
 
 const db = createPool({
     host: "localhost",
-    user: "sqluser", //DEFAULT = "ROOT"
+    user: "root", //DEFAULT = "ROOT"
     password: "password",
     database: "kapperszaakdb",
 });
@@ -34,25 +34,42 @@ register.use(cors());
 register.use(express.json())
 register.use(bodyParser.urlencoded({ extended: true }));
 
+//info pakken van database
+register.get("/admin", (req, res) => {
+    const sqlSelect = "SELECT * FROM userinformation";
+        db.query(sqlSelect, (err, result) => {
+            res.send(result);
+        });
+});
+
+//info inzetten in database
 register.post("/register", (req, res)=> {
-    const { userFirstName, 
-            userMiddleName, 
-            userLastName, 
-            userEmail, 
-            userPassword } = req.body
+    const userfirstname = req.body.userFirstName
+    const usermiddlename = req.body.userMiddleName
+    const userlastname = req.body.userLastName
+    const useremail = req.body.userEmail
+    const userpassword = req.body.userPassword
+
+
+// register.post("/register", (req, res)=> {
+//     const { userFirstName, 
+//             userMiddleName, 
+//             userLastName, 
+//             userEmail, 
+//             userPassword } = req.body
 
 // USER DETAIL ENCRYPTION
 
-    const userFirstNameEncrypt = Encrypt.encrypt(userFirstName);
-    const userMiddleNameEncrypt = Encrypt.encrypt(userMiddleName);
-    const userLastNameEncrypt = Encrypt.encrypt(userLastName);
+    const userFirstNameEncrypt = Encrypt.encrypt(userfirstname);
+    const userMiddleNameEncrypt = Encrypt.encrypt(usermiddlename);
+    const userLastNameEncrypt = Encrypt.encrypt(userlastname);
 
     const userEmailEncrypt = Encrypt.encrypt(userEmail);
     const userEmailDecrypt = Decrypt.decrypt(userEmailEncrypt);
 
 // PASSWORD HASH FUNCTION    
 
-    bcrypt.hash(userPassword, saltRounds, (err, passwordHash) => { 
+    bcrypt.hash(userpassword, saltRounds, (err, passwordHash) => { 
         if (err) {
             console.log(err)
         }

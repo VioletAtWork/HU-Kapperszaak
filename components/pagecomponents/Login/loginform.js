@@ -23,7 +23,7 @@ const LoginForm = () => {
         const loginUser = () => {
 
             // voor admin dashboard even snel hardcoden :))))))))
-            if (loginemail == "admin" && loginpassword == "1234") {
+            if (loginemail == "admin@outlook.com" && loginpassword == "1234") {
                 document.location.href="/admin"
             } else {
                 Axios.post("http://localhost:3002/userlogin", {
