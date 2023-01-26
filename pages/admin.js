@@ -6,18 +6,13 @@ import Axios from 'axios';
 import React, { useState, useEffect } from 'react'
 import { validateConfig } from "next/dist/server/config-shared";
 
-const Admin = () {
-    const [userfirstName, setUserFirstName] = useState("");
-    const [usermiddleName, setUserMiddleName] = useState("");
-    const [userlastName, setUserLastName] = useState("");
-    const [userEmail, setUserEmail] = useState("");
-    const [userPassword, setUserPassword] = useState("");
-    const [RegisteredList, setRegisteredList] = useState([]);
+
+const Admin = () => {
+    const [RegisteredList, setRegisteredList] = useState([]); // om het te laten zien
 
 
-    // voor admin dashboard 
     useEffect (() => {
-            Axios.get("http://localhost:3001/admin").then((response)=> {
+        Axios.get("http://localhost:3001/admin").then((response)=> {
                 setRegisteredList(response.data)
     });
 }, []);
@@ -108,7 +103,6 @@ const Admin = () {
                 </Stack>
 
 
-
                 <Stack>
                     <Heading as="h2" fontSize={20}>
                         Over ons
@@ -120,14 +114,17 @@ const Admin = () {
             </SimpleGrid>
             
             <Text>
-                Welkom bij het HairLab Admin dashboard.
+            {RegisteredList.map((val)=>{
+                return <h1> Naam: {val.userfirstname} | {val.usermiddlename} | {val.userlastname}</h1>
+            })}
 
-                {/* Naam: {val.Movie} | {} */}
+
+                Welkom bij het HairLab Admin dashboard.
             </Text>
 
         </Box>
     </Layout>
     );
-
+}
 
 export default Admin
