@@ -13,7 +13,7 @@ import Decrypt from './EncryptionHandler.js';
 
 const db = createPool({
     host: "localhost",
-    user: "root", //DEFAULT = "ROOT"
+    user: "sqluser", //DEFAULT = "ROOT"
     password: "password",
     database: "kapperszaakdb",
 });
